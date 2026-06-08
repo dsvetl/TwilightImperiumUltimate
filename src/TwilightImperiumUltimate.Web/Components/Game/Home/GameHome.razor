@@ -1,0 +1,23 @@
+<LibraryShell>
+    <main id="library-content">
+        <OverviewIntro Title="The Galactic Archive"
+                       Description="Explore factions, technologies, cards, the galactic board, rules reference, and official resources through one connected library."
+                       Image="/resources/images/shared/tiles/large/Tile18.webp" />
+
+        <nav class="game-portals" aria-label="Game catalogs">
+            @foreach (var item in Items)
+            {
+                <a class="game-portal ti-card"
+                   href="@item.Url">
+                    <img src="@item.Image" alt="" />
+                    <span>
+                        <small class="ti-eyebrow">@item.Eyebrow</small>
+                        <strong class="ti-title">@item.Title</strong>
+                        <span>@item.Description</span>
+                    </span>
+                    <b aria-hidden="true">›</b>
+                </a>
+            }
+        </nav>
+    </main>
+</LibraryShell>

@@ -1,0 +1,33 @@
+@inject IPathProvider PathProvider
+
+<article class="library-card ti-card">
+    <img src="@PathProvider.GetCardImagePath(Card.AssetKey, Card.Type)" alt="@Card.Name" loading="lazy" />
+    <div>
+        <h3 class="ti-title">@LibraryFormatting.Identifier(Card.Name)</h3>
+        @if (HasDetails || HasNotes)
+        {
+            <footer>
+            @if (HasDetails)
+            {
+                <button type="button" @onclick="ToggleDetails">@(_showDetails ? "Hide details" : "Show details")</button>
+            }
+            @if (HasNotes)
+            {
+                <button type="button" @onclick="ToggleNotes">@(_showNotes ? "Hide notes" : "Show notes")</button>
+            }
+            </footer>
+        }
+        @if (_showDetails)
+        {
+            <div class="card-text ti-prose">@((MarkupString)Card.Text)</div>
+        }
+        @if (_showNotes)
+        {
+            <aside class="card-notes ti-prose">@((MarkupString)Notes)</aside>
+        }
+        @if (Faqs.Count > 0)
+        {
+            <FaqEntries Items="@Faqs" />
+        }
+    </div>
+</article>

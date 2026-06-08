@@ -1,8 +1,12 @@
-﻿@inherits TwilightImperiumBaseComponenet
+@inherits TwilightImperiumBaseComponenet
 
-<div class="link responsive-icon" @onclick="() => OnClick.InvokeAsync(Faction)">
+<button type="button"
+        class="faction-icon @(IsSelected ? "selected" : string.Empty)"
+        title="@Name"
+        aria-label="@Name"
+        aria-pressed="@IsSelected"
+        @onclick="() => OnClick.InvokeAsync(Faction)">
     <img class="icon @GetBanIconState()"
          src="@GetFactionIconPath()"
-         alt="icon for @Name"
-         title="@Name">
-</div>
+         alt="">
+</button>

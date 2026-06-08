@@ -1,0 +1,34 @@
+<div class="navigation-group @(Open ? "open" : null)">
+    <div class="navigation-group-primary">
+        <NavLink href="@Item.Href"
+                 Match="@LinkMatch"
+                 target="@(Item.OpenInNewTab ? "_blank" : null)"
+                 @onclick="Navigate">
+            @Item.Label
+        </NavLink>
+
+        @if (HasChildren)
+        {
+            <button type="button"
+                    aria-label="Toggle @Item.Label menu"
+                    aria-expanded="@(Open ? "true" : "false")"
+                    @onclick="Toggle">
+                <span aria-hidden="true">&#8964;</span>
+            </button>
+        }
+    </div>
+
+    @if (HasChildren)
+    {
+        <div class="navigation-group-dropdown">
+            @foreach (var child in Item.Children!)
+            {
+                <NavLink href="@child.Href"
+                         target="@(child.OpenInNewTab ? "_blank" : null)"
+                         @onclick="Navigate">
+                    @child.Label
+                </NavLink>
+            }
+        </div>
+    }
+</div>

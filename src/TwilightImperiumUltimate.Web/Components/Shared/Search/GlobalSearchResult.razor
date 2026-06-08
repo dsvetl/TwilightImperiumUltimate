@@ -1,0 +1,25 @@
+@using TwilightImperiumUltimate.Web.Services.Search
+
+<button type="button"
+        class="search-result"
+        @onclick="Navigate">
+    <span>
+        <strong>@Result.Title</strong>
+        @if (!string.IsNullOrWhiteSpace(Result.Subtitle))
+        {
+            <small>@Result.Subtitle</small>
+        }
+    </span>
+    <p>@Result.Excerpt</p>
+    <b aria-hidden="true">&rsaquo;</b>
+</button>
+
+@code {
+    [Parameter, EditorRequired]
+    public SearchDocument Result { get; set; } = default!;
+
+    [Parameter]
+    public EventCallback<string> OnNavigate { get; set; }
+
+    private Task Navigate() => OnNavigate.InvokeAsync(Result.Url);
+}

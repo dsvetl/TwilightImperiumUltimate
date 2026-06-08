@@ -1,0 +1,51 @@
+<GameCatalogLayout ActiveSection="cards" Title="Cards">
+    <div class="catalog-filter-stack">
+        <FilterChips Items="@CardTypes" Value="@_type" ValueChanged="SetType" AriaLabel="Card type" />
+        <CascadingFilterChips PrimaryItems="@ContentSourceFilters.Sources"
+                              PrimaryValue="@_source"
+                              PrimaryValueChanged="SetSource"
+                              SecondaryItems="@VersionFilters"
+                              SecondaryValue="@_version"
+                              SecondaryValueChanged="SetVersion"
+                              AriaLabel="Card source"
+                              SecondaryAriaLabel="Card set" />
+    </div>
+
+    @if (_loading)
+    {
+        <ContentState Title="Loading cards" />
+    }
+    else if (_failed)
+    {
+        <ContentState Mark="!" Title="Card archive unavailable">
+            <Action><button class="catalog-retry" @onclick="Retry">Retry</button></Action>
+        </ContentState>
+    }
+    else if (VisibleCards.Count == 0)
+    {
+        <ContentState Title="No cards found" Message="Try a different search." />
+    }
+    else
+    {
+        <div class="ti-version-sections" aria-label="Cards">
+            @foreach (var group in VisibleCards.GroupBy(card => card.Version).OrderBy(group => LibraryFormatting.VersionOrder(group.Key)))
+            {
+                <section class="ti-version-section">
+                    <header class="ti-version-heading">
+                        <span class="ti-eyebrow">@LibraryFormatting.Source(group.Key)</span>
+                        <h2 class="ti-title">@LibraryFormatting.Version(group.Key)</h2>
+                    </header>
+                    <div class="card-library-grid ti-grid">
+                        @foreach (var card in group)
+                        {
+                            <LibraryCard @key="card.Id"
+                                         Card="@card"
+                                         Notes="@NotesFor(card)"
+                                         Faqs="@FaqsFor(card)" />
+                        }
+                    </div>
+                </section>
+            }
+        </div>
+    }
+</GameCatalogLayout>

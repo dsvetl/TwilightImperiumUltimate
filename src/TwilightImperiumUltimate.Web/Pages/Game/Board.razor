@@ -1,0 +1,24 @@
+@page "/game/board"
+@using TwilightImperiumUltimate.Web.Components.Game.SystemTiles
+
+<PageTitle>Board</PageTitle>
+
+<SystemTileBrowser View="@View"
+                   Kind="@Kind"
+                   Trait="@Trait"
+                   LegacyType="@Type"
+                   Tile="@Tile"
+                   Planet="@Planet"
+                   Source="@Source"
+                   Version="@Version" />
+
+@code {
+    [SupplyParameterFromQuery(Name = "view")] public string? View { get; set; }
+    [SupplyParameterFromQuery(Name = "kind")] public string? Kind { get; set; }
+    [SupplyParameterFromQuery(Name = "trait")] public string? Trait { get; set; }
+    [SupplyParameterFromQuery(Name = "type")] public string? Type { get; set; }
+    [SupplyParameterFromQuery(Name = "planet")] public string? Planet { get; set; }
+    [SupplyParameterFromQuery(Name = "tile")] public string? Tile { get; set; }
+    [SupplyParameterFromQuery(Name = "source")] public string? Source { get; set; }
+    [SupplyParameterFromQuery(Name = "version")] public string? Version { get; set; }
+}

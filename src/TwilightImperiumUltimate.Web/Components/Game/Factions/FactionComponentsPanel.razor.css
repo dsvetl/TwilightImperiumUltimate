@@ -1,0 +1,27 @@
+.component-panel {
+  display: grid;
+  gap: 34px;
+}
+.component-panel section {
+  display: grid;
+  gap: 16px;
+}
+.component-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 260px));
+  gap: 16px;
+}
+.component-images figure {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+.component-images img {
+  width: 100%;
+  max-height: 360px;
+  object-fit: contain;
+}
+.component-images figcaption {
+  text-align: center;
+  color: var(--ti-text-secondary);
+}

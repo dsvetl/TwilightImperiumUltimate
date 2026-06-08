@@ -1,0 +1,32 @@
+@inject IPathProvider PathProvider
+
+<div class="setup-panel">
+    <section>
+        <h3 class="ti-title">Starting units</h3>
+        <div class="setup-grid">
+            @foreach (var unit in Faction.StartingUnits.OrderBy(unit => unit.UnitType))
+            {
+                <article class="setup-item ti-card">
+                    <img src="@PathProvider.GetUnitImagePath(unit.UnitName)" alt="" />
+                    <span><strong>@LibraryFormatting.Identifier(unit.UnitName.ToString())</strong><small>× @unit.Count</small></span>
+                </article>
+            }
+        </div>
+    </section>
+    <section>
+        <h3 class="ti-title">Starting technologies</h3>
+        <div class="setup-grid">
+            @foreach (var technology in Faction.StartingTechnologies)
+            {
+                <article class="setup-item ti-card">
+                    <img src="@PathProvider.GetTechnologyImagePath(technology.TechnologyName)" alt="" />
+                    <strong>@technology.Name</strong>
+                </article>
+            }
+        </div>
+    </section>
+</div>
+
+@code {
+    [Parameter, EditorRequired] public FactionDto Faction { get; set; } = default!;
+}

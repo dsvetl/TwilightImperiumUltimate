@@ -1,0 +1,43 @@
+<GameCatalogLayout ActiveSection="resources" Title="Resources">
+    @if (_loading)
+    {
+        <ContentState Title="Loading resources" />
+    }
+    else if (_failed)
+    {
+        <ContentState Mark="!" Title="Resource catalog unavailable">
+            <Action><button class="catalog-retry" @onclick="Load">Retry</button></Action>
+        </ContentState>
+    }
+    else
+    {
+        <FilterChips Items="@TypeFilters"
+                     Value="@_type"
+                     ValueChanged="SetType"
+                     AriaLabel="Resource type" />
+
+        <section class="resource-grid" aria-label="Game resources">
+            @foreach (var resource in VisibleResources)
+            {
+                <a class="resource-card ti-card"
+                   href="@resource.Url"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   @key="resource.Id">
+                    <img src="@resource.Icon" alt="" />
+                    <div>
+                        <div class="resource-meta">
+                            <span>@resource.Type</span>
+                            @if (!string.IsNullOrWhiteSpace(resource.Version))
+                            {
+                                <span>@resource.Version</span>
+                            }
+                        </div>
+                        <h2 class="ti-title">@resource.Title</h2>
+                        <p>@resource.Description</p>
+                    </div>
+                </a>
+            }
+        </section>
+    }
+</GameCatalogLayout>

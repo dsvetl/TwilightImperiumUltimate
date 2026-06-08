@@ -1,0 +1,107 @@
+.faction-detail {
+  display: grid;
+  gap: 20px;
+}
+.back-button {
+  justify-self: start;
+  min-height: 42px;
+  color: var(--ti-blue);
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.faction-identity {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 42%);
+  min-height: 390px;
+  overflow: hidden;
+}
+.faction-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 32px;
+  padding: clamp(24px, 5vw, 64px);
+}
+.faction-title {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.faction-title img {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+}
+.faction-title h2 {
+  margin-top: 8px;
+  font-size: clamp(2rem, 5vw, 4rem);
+}
+.faction-copy blockquote {
+  max-width: 58ch;
+  margin: 0;
+  color: var(--ti-text-secondary);
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.7;
+}
+.faction-art {
+  width: 100%;
+  height: 100%;
+  min-height: 390px;
+  object-fit: cover;
+  object-position: center top;
+  mask-image: linear-gradient(to right, transparent 0, #000 18%);
+}
+.faction-tabs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 6px;
+  border-bottom: 1px solid var(--ti-border);
+}
+.faction-tabs button {
+  flex: 0 0 auto;
+  min-height: 42px;
+  padding: 0 16px;
+  color: var(--ti-text-secondary);
+  border: 1px solid transparent;
+  border-radius: var(--ti-radius-sm);
+  background: transparent;
+  cursor: pointer;
+}
+.faction-tabs button:hover,
+.faction-tabs button:focus-visible {
+  color: var(--ti-text);
+  border-color: var(--ti-border);
+}
+.faction-tabs button.active {
+  color: var(--ti-text);
+  border-color: var(--ti-blue);
+  background: rgba(31, 80, 111, 0.45);
+}
+.faction-panel {
+  min-height: 320px;
+  padding: clamp(20px, 4vw, 44px);
+  overflow: hidden;
+}
+@media (max-width: 800px) {
+  .faction-identity {
+    grid-template-columns: 1fr;
+  }
+  .faction-art {
+    grid-row: 1;
+    min-height: 300px;
+    mask-image: linear-gradient(to bottom, #000 70%, transparent);
+  }
+  .faction-copy {
+    grid-row: 2;
+  }
+  .faction-title {
+    align-items: flex-start;
+  }
+  .faction-title img {
+    width: 72px;
+    height: 72px;
+  }
+}

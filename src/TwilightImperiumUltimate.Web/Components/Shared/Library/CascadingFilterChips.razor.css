@@ -1,0 +1,37 @@
+.cascading-filter-chips {
+  display: grid;
+  width: 100%;
+  margin: -24px auto 22px;
+}
+
+.cascading-filter-chips ::deep .filter-chips {
+  margin: 0;
+}
+
+.cascade-options {
+  min-height: 40px;
+  border-top: 1px solid rgba(142, 207, 255, 0.08);
+  background: rgba(8, 26, 40, 0.22);
+}
+
+.cascade-options ::deep .filter-chips {
+  border-top: 0;
+  background: transparent;
+}
+
+.cascade-options ::deep .filter-chips button {
+  min-height: 36px;
+  color: rgba(187, 218, 239, 0.78);
+  font-size: 12px;
+}
+
+.cascade-options ::deep .filter-chips button.active {
+  color: #bfe7ff;
+  background: rgba(18, 76, 112, 0.34);
+}
+
+@media (max-width: 768px) {
+  .cascading-filter-chips {
+    margin-top: -18px;
+  }
+}

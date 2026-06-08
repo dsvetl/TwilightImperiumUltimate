@@ -1,0 +1,7 @@
+<section class="faction-copy-panel ti-prose">
+    @((MarkupString)Faction.FactionName.GetFactionUIText(FactionResourceType.Lore))
+</section>
+
+@code {
+    [Parameter, EditorRequired] public FactionDto Faction { get; set; } = default!;
+}

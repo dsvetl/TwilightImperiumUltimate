@@ -1,0 +1,47 @@
+.library-card {
+  content-visibility: auto;
+  contain-intrinsic-size: 520px;
+  display: grid;
+  overflow: hidden;
+  background: rgba(5, 8, 14, 0.76);
+}
+.library-card > img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: contain;
+  object-position: center;
+  background: rgba(0, 0, 0, 0.36);
+}
+.library-card > div {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  padding: 14px;
+}
+.library-card h3 {
+  font-size: 0.98rem;
+}
+.library-card footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.library-card footer button {
+  min-height: 30px;
+  padding: 3px 9px;
+  color: var(--ti-blue);
+  border: 1px solid var(--ti-border);
+  border-radius: var(--ti-radius-sm);
+  background: transparent;
+  cursor: pointer;
+}
+.card-text,
+.card-notes {
+  padding-top: 12px;
+  color: var(--ti-text-secondary);
+  border-top: 1px solid var(--ti-border);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}

@@ -2,7 +2,8 @@ namespace TwilightImperiumUltimate.Web.Pages.Game;
 
 public partial class FactionsDS
 {
-    private FactionInfoGrid? factionInfoRef;
+    [Inject]
+    private NavigationManager NavigationManager { get; set; } = default!;
 
     [Parameter]
     [SupplyParameterFromQuery(Name = "faction")]
@@ -12,9 +13,16 @@ public partial class FactionsDS
     [SupplyParameterFromQuery(Name = "info")]
     public string Info { get; set; } = string.Empty;
 
-    private void UpdateSelectedFaction(FactionModel selectedFaction)
+    protected override void OnInitialized()
     {
-        factionInfoRef?.UpdateSelectedFaction(selectedFaction);
-        factionInfoRef?.SetFactionInfo(Info);
+        var query = new List<string> { "source=community" };
+
+        if (!string.IsNullOrWhiteSpace(Faction))
+            query.Add($"faction={Uri.EscapeDataString(Faction)}");
+
+        if (!string.IsNullOrWhiteSpace(Info))
+            query.Add($"info={Uri.EscapeDataString(Info)}");
+
+        NavigationManager.NavigateTo($"/game/factions?{string.Join("&", query)}", replace: true);
     }
 }

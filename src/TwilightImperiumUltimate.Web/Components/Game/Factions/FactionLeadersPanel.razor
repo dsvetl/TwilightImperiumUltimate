@@ -1,0 +1,27 @@
+@inject IPathProvider PathProvider
+
+<div class="leader-grid">
+    @foreach (var leader in Leaders)
+    {
+        <article class="leader-card ti-card">
+            <span class="ti-eyebrow">@leader.Label</span>
+            <img src="@PathProvider.GetFactionComponenetTypeImagePath(Faction.FactionName.ToString(), leader.Type)" alt="@leader.Label" />
+            @if (leader.Type == ComponentType.Commander)
+            {
+                <p>@Faction.FactionName.GetFactionUIText(FactionResourceType.CommanderRequirement)</p>
+            }
+        </article>
+    }
+</div>
+
+@code {
+    private static readonly IReadOnlyList<LeaderItem> Leaders =
+    [
+        new("Agent", ComponentType.Agent),
+        new("Commander", ComponentType.Commander),
+        new("Hero", ComponentType.Hero),
+    ];
+
+    [Parameter, EditorRequired] public FactionDto Faction { get; set; } = default!;
+    private sealed record LeaderItem(string Label, ComponentType Type);
+}

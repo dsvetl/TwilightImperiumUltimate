@@ -1,0 +1,22 @@
+<nav class="section-navigation handel shadow" aria-label="@AriaLabel">
+    @foreach (var item in Items)
+    {
+        <NavLink href="@item.Href"
+                 Match="NavLinkMatch.Prefix"
+                 class="@(item.Key == ActiveKey ? "active" : null)"
+                 aria-current="@(item.Key == ActiveKey ? "page" : null)">
+            @item.Label
+        </NavLink>
+    }
+</nav>
+
+@code {
+    [Parameter, EditorRequired]
+    public IReadOnlyList<NavigationItem> Items { get; set; } = [];
+
+    [Parameter]
+    public string ActiveKey { get; set; } = string.Empty;
+
+    [Parameter]
+    public string AriaLabel { get; set; } = "Sections";
+}

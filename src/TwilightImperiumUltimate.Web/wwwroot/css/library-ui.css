@@ -1,0 +1,205 @@
+:root {
+  --ti-space-950: #05070d;
+  --ti-space-900: #0a101b;
+  --ti-space-850: #0d1623;
+  --ti-space-800: #111c2a;
+  --ti-surface: rgba(5, 10, 18, 0.34);
+  --ti-surface-raised: rgba(8, 16, 27, 0.68);
+  --ti-surface-hover: rgba(24, 58, 84, 0.48);
+  --ti-text: #f2f5f7;
+  --ti-text-secondary: #aeb9c6;
+  --ti-text-muted: #7d8997;
+  --ti-blue: #7fc8f2;
+  --ti-blue-strong: #a6ddfa;
+  --ti-gold: #c7a45b;
+  --ti-danger: #d36a68;
+  --ti-success: #79b89a;
+  --ti-border: rgba(190, 213, 231, 0.1);
+  --ti-border-strong: rgba(127, 200, 242, 0.38);
+  --ti-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  --ti-radius-sm: 4px;
+  --ti-radius-md: 8px;
+  --ti-radius-lg: 14px;
+  --ti-content: 1180px;
+  --ti-reading: 72ch;
+  --ti-space-1: 4px;
+  --ti-space-2: 8px;
+  --ti-space-3: 12px;
+  --ti-space-4: 16px;
+  --ti-space-5: 20px;
+  --ti-space-6: 24px;
+  --ti-space-8: 32px;
+  --ti-space-10: 40px;
+  --ti-space-12: 48px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--ti-text);
+  font-family: "Myriad Pro Regular", Arial, sans-serif;
+}
+
+a,
+button,
+input {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ti-blue);
+  outline-offset: 3px;
+}
+
+.ti-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.ti-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: var(--ti-space-4);
+}
+
+.ti-card {
+  color: var(--ti-text);
+  border: 1px solid var(--ti-border);
+  border-radius: var(--ti-radius-md);
+  background: var(--ti-surface);
+  box-shadow: none;
+}
+
+.ti-card-link {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  padding: var(--ti-space-5);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    transform 160ms ease;
+}
+
+.ti-card-link:hover,
+.ti-card-link:focus-visible {
+  border-color: var(--ti-border-strong);
+  background: var(--ti-surface-hover);
+  transform: translateY(-2px);
+}
+
+.ti-eyebrow {
+  color: var(--ti-gold);
+  font-family: Handel, Arial, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.ti-title {
+  margin: 0;
+  font-family: Handel, Arial, sans-serif;
+  font-weight: 700;
+  line-height: 1.08;
+}
+
+.ti-muted {
+  color: var(--ti-text-secondary);
+}
+
+.ti-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ti-space-2);
+  align-items: center;
+}
+
+.ti-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 3px 9px;
+  color: var(--ti-text-secondary);
+  border: 1px solid var(--ti-border);
+  border-radius: 999px;
+  background: rgba(5, 8, 14, 0.58);
+  font-size: 0.78rem;
+}
+
+.ti-badge--official {
+  color: #ecd69f;
+  border-color: rgba(199, 164, 91, 0.5);
+}
+
+.ti-prose {
+  width: min(100%, var(--ti-reading));
+  color: var(--ti-text);
+  font-size: clamp(1rem, 0.97rem + 0.15vw, 1.12rem);
+  line-height: 1.68;
+}
+
+.ti-version-sections {
+  display: grid;
+  gap: 34px;
+}
+
+.ti-version-heading {
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--ti-border);
+}
+
+.ti-version-heading h2 {
+  margin-top: 5px;
+  font-size: 1.45rem;
+}
+
+.ti-prose h2,
+.ti-prose h3 {
+  margin-top: 1.7em;
+  font-family: Handel, Arial, sans-serif;
+  line-height: 1.2;
+}
+
+.ti-prose a {
+  color: var(--ti-blue);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+.catalog-filter-stack {
+  width: 100%;
+  margin: -24px auto 22px;
+}
+
+.catalog-filter-stack > .filter-chips,
+.catalog-filter-stack > .cascading-filter-chips {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .catalog-filter-stack {
+    margin-top: -18px;
+  }
+}

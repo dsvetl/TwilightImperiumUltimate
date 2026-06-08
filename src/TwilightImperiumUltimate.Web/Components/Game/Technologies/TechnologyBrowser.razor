@@ -1,0 +1,86 @@
+<GameCatalogLayout ActiveSection="technologies" Title="Technologies">
+    <div class="catalog-filter-stack">
+        <FilterChips Items="@TypeFilters" Value="@_type" ValueChanged="SetType" AriaLabel="Technology type" />
+        <CascadingFilterChips PrimaryItems="@ContentSourceFilters.Sources"
+                              PrimaryValue="@_source"
+                              PrimaryValueChanged="SetSource"
+                              SecondaryItems="@VersionFilters"
+                              SecondaryValue="@_version"
+                              SecondaryValueChanged="SetVersion"
+                              AriaLabel="Technology source"
+                              SecondaryAriaLabel="Technology set" />
+    </div>
+
+    @if (_loading)
+    {
+        <ContentState Title="Loading technologies" />
+    }
+    else if (_failed)
+    {
+        <ContentState Mark="!" Title="Technology archive unavailable">
+            <Action><button class="catalog-retry" @onclick="Retry">Retry</button></Action>
+        </ContentState>
+    }
+    else
+    {
+        <div class="ti-version-sections" aria-label="Technologies">
+            @foreach (var version in VisibleTechnologies
+                .GroupBy(item => item.GameVersion)
+                .OrderBy(group => LibraryFormatting.VersionOrder(group.Key)))
+            {
+                var general = version.Where(item => !item.IsFactionTechnology).ToArray();
+                var faction = version.Where(item => item.IsFactionTechnology).ToArray();
+
+                <section class="ti-version-section">
+                    <header class="ti-version-heading">
+                        <span class="ti-eyebrow">@LibraryFormatting.Source(version.Key)</span>
+                        <h2 class="ti-title">@LibraryFormatting.Version(version.Key)</h2>
+                    </header>
+
+                    @if (general.Length > 0)
+                    {
+                        <section class="technology-group">
+                            <h3 class="ti-title">General technologies</h3>
+                            <div class="technology-grid">
+                                @foreach (var technology in general)
+                                {
+                                    <TechnologyCatalogCard @key="TechnologyKey(technology)"
+                                                           Technology="@technology"
+                                                           Notes="@NotesFor(technology)"
+                                                           Faqs="@FaqsFor(technology)" />
+                                }
+                            </div>
+                        </section>
+                    }
+
+                    @if (faction.Length > 0)
+                    {
+                        <section class="technology-group faction-technologies">
+                            <h3 class="ti-title">Faction technologies</h3>
+                            @foreach (var factionGroup in faction
+                                .GroupBy(item => item.FactionName)
+                                .OrderBy(group => LibraryFormatting.Faction(group.Key)))
+                            {
+                                <section class="faction-technology-group">
+                                    <header>
+                                        <img src="@($"/resources/images/shared/factionicons/{factionGroup.Key}.webp")" alt="" />
+                                        <h4 class="ti-title">@LibraryFormatting.Faction(factionGroup.Key)</h4>
+                                    </header>
+                                    <div class="technology-grid">
+                                        @foreach (var technology in factionGroup)
+                                        {
+                                            <TechnologyCatalogCard @key="TechnologyKey(technology)"
+                                                                   Technology="@technology"
+                                                                   Notes="@NotesFor(technology)"
+                                                                   Faqs="@FaqsFor(technology)" />
+                                        }
+                                    </div>
+                                </section>
+                            }
+                        </section>
+                    }
+                </section>
+            }
+        </div>
+    }
+</GameCatalogLayout>

@@ -1,10 +1,6 @@
-﻿@page "/game/factions"
-@using TwilightImperiumUltimate.Web.Components.Factions
+@page "/game/factions"
+@using TwilightImperiumUltimate.Web.Components.Game.Factions
 
 <PageTitle>@Strings.Page_Factions</PageTitle>
 
-<Page>
-    <FactionIconRow OnFactionClickGetFaction="UpdateSelectedFaction" Faction="@Faction" />
-
-    <FactionInfoGrid @ref="factionInfoRef" />
-</Page>
+<FactionBrowser Source="@Source" Version="@Version" Faction="@Faction" Info="@Info" />

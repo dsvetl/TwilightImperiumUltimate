@@ -1,0 +1,12 @@
+<div class="filter-chips navigation-strip handel" role="group" aria-label="@AriaLabel">
+    @foreach (var item in Items)
+    {
+        <button type="button"
+                class="@(item.Value == Value ? "active" : null)"
+                aria-pressed="@(item.Value == Value ? "true" : "false")"
+                disabled="@item.Disabled"
+                @onclick="() => Select(item.Value)">
+            @item.Label
+        </button>
+    }
+</div>

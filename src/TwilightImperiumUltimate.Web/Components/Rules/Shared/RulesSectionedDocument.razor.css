@@ -1,0 +1,50 @@
+.section-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--ti-border);
+}
+.section-index[hidden] {
+  display: none;
+}
+.section-index ::deep a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 6px 12px;
+  color: var(--ti-text-secondary);
+  border: 1px solid var(--ti-border);
+  border-radius: 999px;
+  text-decoration: none;
+  background: rgba(5, 8, 14, 0.55);
+}
+.section-index ::deep a:hover,
+.section-index ::deep a:focus-visible {
+  color: var(--ti-text);
+  border-color: var(--ti-blue);
+  background: var(--ti-surface-hover);
+}
+.section-index--detailed {
+  display: grid;
+  gap: 16px;
+}
+.section-index--detailed ::deep .section-index-group {
+  display: grid;
+  gap: 8px;
+}
+.section-index--detailed ::deep .section-index-group > strong {
+  color: var(--ti-text-secondary);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.section-index--detailed ::deep .section-index-group > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.sectioned-markup ::deep h1[id] {
+  scroll-margin-top: 24px;
+}

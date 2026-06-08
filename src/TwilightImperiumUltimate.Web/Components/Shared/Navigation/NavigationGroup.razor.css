@@ -1,0 +1,162 @@
+.navigation-group {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.navigation-group-primary {
+  display: flex;
+  height: 100%;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.navigation-group-primary ::deep a {
+  display: grid;
+  min-height: 52px;
+  flex: 1 1 auto;
+  place-items: center;
+  padding: 0 6px;
+  color: white;
+  font-size: clamp(15px, 1.35vw, 22px);
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.navigation-group-primary ::deep a:hover,
+.navigation-group-primary ::deep a.active,
+.navigation-group:focus-within .navigation-group-primary ::deep a {
+  color: #8ecfff;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(18, 57, 87, 0.48),
+    transparent
+  );
+}
+
+.navigation-group-primary ::deep a:focus-visible,
+.navigation-group-primary button:focus-visible,
+.navigation-group-dropdown ::deep a:focus-visible {
+  outline: 2px solid #8ecfff;
+  outline-offset: -3px;
+}
+
+.navigation-group-primary button {
+  display: none;
+  width: 38px;
+  padding: 0;
+  color: #8ecfff;
+  border: 0;
+  background: transparent;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.navigation-group-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  display: grid;
+  width: max(190px, 130%);
+  padding: 4px 0;
+  visibility: hidden;
+  opacity: 0;
+  transform: translate(-50%, -4px);
+  transition:
+    opacity 0.16s ease,
+    transform 0.16s ease,
+    visibility 0.16s;
+}
+
+.navigation-group-dropdown ::deep a {
+  min-height: 36px;
+  padding: 8px 14px;
+  box-sizing: border-box;
+  color: white;
+  background: rgba(0, 0, 0, 0.88);
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.navigation-group-dropdown ::deep a:hover,
+.navigation-group-dropdown ::deep a.active {
+  color: #8ecfff;
+  background: rgba(18, 57, 87, 0.94);
+}
+
+.navigation-group:hover .navigation-group-dropdown,
+.navigation-group:focus-within .navigation-group-dropdown,
+.navigation-group.open .navigation-group-dropdown {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+@media (max-width: 900px) {
+  .navigation-group {
+    display: block;
+  }
+
+  .navigation-group-primary {
+    min-height: 48px;
+  }
+
+  .navigation-group-primary ::deep a {
+    min-height: 48px;
+    justify-items: start;
+    padding-left: 20px;
+    font-size: 17px;
+    text-align: left;
+  }
+
+  .navigation-group-primary button {
+    display: block;
+    width: 52px;
+  }
+
+  .navigation-group-primary button span {
+    display: inline-block;
+    transition: transform 0.16s ease;
+  }
+
+  .navigation-group.open .navigation-group-primary button span {
+    transform: rotate(180deg);
+  }
+
+  .navigation-group-dropdown {
+    position: static;
+    display: none;
+    width: auto;
+    padding: 0 12px 7px 28px;
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .navigation-group.open .navigation-group-dropdown {
+    display: grid;
+    transform: none;
+  }
+
+  .navigation-group-dropdown ::deep a {
+    min-height: 42px;
+    padding: 10px 14px;
+    border-left: 1px solid rgba(142, 207, 255, 0.35);
+    background: rgba(18, 57, 87, 0.22);
+    font-size: 14px;
+    text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navigation-group-dropdown,
+  .navigation-group-primary button span {
+    transition: none;
+  }
+}

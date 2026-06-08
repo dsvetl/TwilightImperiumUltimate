@@ -1,0 +1,26 @@
+.content-state {
+  display: grid;
+  place-items: center;
+  min-height: 260px;
+  padding: 40px 24px;
+  border: 1px solid var(--ti-border);
+  border-radius: var(--ti-radius-md);
+  background: var(--ti-surface);
+  text-align: center;
+}
+
+.content-state__mark {
+  color: var(--ti-blue);
+  font-size: 34px;
+}
+
+.content-state h2 {
+  margin-top: 12px;
+  font-size: 1.5rem;
+}
+
+.content-state p {
+  max-width: 55ch;
+  margin: 10px 0 0;
+  color: var(--ti-text-secondary);
+}

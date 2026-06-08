@@ -1,0 +1,19 @@
+<header class="overview-intro">
+    <div class="overview-intro__copy">
+        <h1 class="ti-title">@Title</h1>
+        @if (!string.IsNullOrWhiteSpace(Description))
+        {
+            <p>@Description</p>
+        }
+        @if (Actions is not null)
+        {
+            <div class="overview-intro__actions">@Actions</div>
+        }
+    </div>
+    @if (!string.IsNullOrWhiteSpace(Image))
+    {
+        <div class="overview-intro__media" aria-hidden="true">
+            <img src="@Image" alt="" />
+        </div>
+    }
+</header>

@@ -1,0 +1,22 @@
+.card-library-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 18px;
+  align-items: start;
+}
+
+.catalog-retry {
+  min-height: 42px;
+  margin-top: 16px;
+  padding: 0 18px;
+  color: var(--ti-text);
+  border: 1px solid var(--ti-blue);
+  background: transparent;
+  cursor: pointer;
+}
+
+.catalog-filter-stack ::deep .filter-chips button:disabled {
+  color: var(--ti-text-secondary);
+  cursor: not-allowed;
+  opacity: 0.35;
+}

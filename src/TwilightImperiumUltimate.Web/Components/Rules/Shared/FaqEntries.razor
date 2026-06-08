@@ -1,0 +1,9 @@
+<div class="faq-entries">
+    @foreach (var faq in Items)
+    {
+        <details class="faq-entry ti-card">
+            <summary><span>@faq.QuestionEnglish</span><b aria-hidden="true">+</b></summary>
+            <div class="ti-prose">@((MarkupString)faq.AnswerEnglish)</div>
+        </details>
+    }
+</div>

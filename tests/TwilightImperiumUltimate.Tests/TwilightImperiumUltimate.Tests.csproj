@@ -27,6 +27,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\TwilightImperiumUltimate.DataAccess\TwilightImperiumUltimate.DataAccess.csproj" />
     <ProjectReference Include="..\..\src\TwilightImperiumUltimate.Tigl\TwilightImperiumUltimate.Tigl.csproj" />
+    <ProjectReference Include="..\..\src\TwilightImperiumUltimate.Web\TwilightImperiumUltimate.Web.csproj" />
   </ItemGroup>
 
   <ItemGroup>

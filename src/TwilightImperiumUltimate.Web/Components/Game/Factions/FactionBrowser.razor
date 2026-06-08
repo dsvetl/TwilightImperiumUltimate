@@ -1,0 +1,64 @@
+<GameCatalogLayout ActiveSection="factions" Title="Factions">
+    <CascadingFilterChips PrimaryItems="@ContentSourceFilters.Sources"
+                          PrimaryValue="@_source"
+                          PrimaryValueChanged="SetSource"
+                          SecondaryItems="@VersionFilters"
+                          SecondaryValue="@_version"
+                          SecondaryValueChanged="SetVersion"
+                          AriaLabel="Faction source"
+                          SecondaryAriaLabel="Faction set" />
+
+    @if (_loading)
+    {
+        <ContentState Title="Opening faction archive" Message="Loading faction records..." />
+    }
+    else if (_failed)
+    {
+        <ContentState Mark="!" Title="Faction archive unavailable" Message="The archive could not be loaded.">
+            <Action><button class="retry-button" @onclick="Retry">Retry</button></Action>
+        </ContentState>
+    }
+    else if (SelectedFaction is not null)
+    {
+        <FactionDetail Faction="@SelectedFaction"
+                       ActiveSection="@Info"
+                       OnSectionChanged="SetInfo"
+                       OnClose="ClearSelection" />
+    }
+    else if (VisibleFactions.Count == 0)
+    {
+        <ContentState Title="No factions found" Message="Try another name or source." />
+    }
+    else
+    {
+        <div class="faction-sections">
+        @foreach (var group in VisibleFactions
+            .GroupBy(faction => faction.GameVersion)
+            .OrderBy(group => LibraryFormatting.VersionOrder(group.Key)))
+        {
+            <section class="faction-section">
+                <header>
+                    @if (_source == "all")
+                    {
+                        <span class="ti-eyebrow">@LibraryFormatting.Source(group.Key)</span>
+                    }
+                    <h2 class="ti-title">@LibraryFormatting.Version(group.Key)</h2>
+                </header>
+                <div class="faction-grid ti-grid">
+            @foreach (var faction in group)
+            {
+                <button class="faction-card ti-card"
+                        @key="faction.FactionName"
+                        type="button"
+                        @onclick="() => Select(faction)">
+                    <img src="@($"/resources/images/shared/factionicons/{faction.FactionName}.webp")"
+                         alt="" />
+                    <strong class="ti-title">@LibraryFormatting.Faction(faction.FactionName)</strong>
+                </button>
+            }
+                </div>
+            </section>
+        }
+        </div>
+    }
+</GameCatalogLayout>

@@ -1,0 +1,12 @@
+<section class="content-state" aria-live="polite">
+    <span class="content-state__mark" aria-hidden="true">@Mark</span>
+    <h2 class="ti-title">@Title</h2>
+    @if (!string.IsNullOrWhiteSpace(Message))
+    {
+        <p>@Message</p>
+    }
+    @if (Action is not null)
+    {
+        <div>@Action</div>
+    }
+</section>

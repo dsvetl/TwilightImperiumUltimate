@@ -1,0 +1,66 @@
+@if (Open)
+{
+    <div class="global-search-layer" role="presentation" @onkeydown="HandleKeyDown">
+        <button class="global-search-backdrop"
+                type="button"
+                aria-label="Close search"
+                @onclick="Close"></button>
+
+        <section class="global-search-dialog"
+                 role="dialog"
+                 aria-modal="true"
+                 aria-labelledby="global-search-title">
+            <header>
+                <div>
+                    <span class="global-search-kicker">Twilight Imperium Ultimate</span>
+                    <h2 id="global-search-title" class="handel">Search</h2>
+                </div>
+                <button class="global-search-close"
+                        type="button"
+                        aria-label="Close search"
+                        @onclick="Close">&times;</button>
+            </header>
+
+            <label class="global-search-input">
+                <span class="visually-hidden">Search the site</span>
+                <span aria-hidden="true">&#8981;</span>
+                <input @ref="_input"
+                       value="@_query"
+                       @oninput="OnInput"
+                       placeholder="Search rules, factions, cards, planets..."
+                       autocomplete="off" />
+            </label>
+
+            <div class="global-search-results" aria-live="polite">
+                @if (_loading)
+                {
+                    <p class="global-search-status">Loading search index...</p>
+                }
+                else if (_failed)
+                {
+                    <div class="global-search-status">
+                        Search is temporarily unavailable.
+                        <button type="button" @onclick="Retry">Retry</button>
+                    </div>
+                }
+                else if (_query.Trim().Length < 2)
+                {
+                    <p class="global-search-status">Enter at least 2 characters.</p>
+                }
+                else if (Results.Count == 0)
+                {
+                    <p class="global-search-status">No results found.</p>
+                }
+                else
+                {
+                    @foreach (var group in Results.GroupBy(result => result.Category))
+                    {
+                        <GlobalSearchResultGroup Category="@group.Key"
+                                                 Results="@group.ToArray()"
+                                                 OnNavigate="Navigate" />
+                    }
+                }
+            </div>
+        </section>
+    </div>
+}

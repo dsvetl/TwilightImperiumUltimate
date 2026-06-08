@@ -1,0 +1,463 @@
+{
+  "success": true,
+  "data": {
+    "items": [
+      {
+        "id": 1,
+        "ruleCategory": "Abilities",
+        "content": "RuleCategory_Abilities"
+      },
+      {
+        "id": 2,
+        "ruleCategory": "ActionCards",
+        "content": "RuleCategory_ActionCards"
+      },
+      {
+        "id": 3,
+        "ruleCategory": "ActionPhase",
+        "content": "RuleCategory_ActionPhase"
+      },
+      {
+        "id": 4,
+        "ruleCategory": "ActivePlayer",
+        "content": "RuleCategory_ActivePlayer"
+      },
+      {
+        "id": 5,
+        "ruleCategory": "ActiveSystem",
+        "content": "RuleCategory_ActiveSystem"
+      },
+      {
+        "id": 6,
+        "ruleCategory": "Adjacency",
+        "content": "RuleCategory_Adjacency"
+      },
+      {
+        "id": 7,
+        "ruleCategory": "AgendaCard",
+        "content": "RuleCategory_AgendaCard"
+      },
+      {
+        "id": 8,
+        "ruleCategory": "AgendaPhase",
+        "content": "RuleCategory_AgendaPhase"
+      },
+      {
+        "id": 9,
+        "ruleCategory": "Anomalies",
+        "content": "RuleCategory_Anomalies"
+      },
+      {
+        "id": 10,
+        "ruleCategory": "AntiFighterBarrage",
+        "content": "RuleCategory_AntiFighterBarrage"
+      },
+      {
+        "id": 11,
+        "ruleCategory": "AsteroidField",
+        "content": "RuleCategory_AsteroidField"
+      },
+      { "id": 13, "ruleCategory": "Attach", "content": "RuleCategory_Attach" },
+      {
+        "id": 12,
+        "ruleCategory": "Attacker",
+        "content": "RuleCategory_Attacker"
+      },
+      {
+        "id": 14,
+        "ruleCategory": "Blockaded",
+        "content": "RuleCategory_Blockaded"
+      },
+      {
+        "id": 15,
+        "ruleCategory": "Bombardment",
+        "content": "RuleCategory_Bombardment"
+      },
+      {
+        "id": 16,
+        "ruleCategory": "Capacity",
+        "content": "RuleCategory_Capacity"
+      },
+      {
+        "id": 17,
+        "ruleCategory": "Capture",
+        "content": "RuleCategory_Capture"
+      },
+      { "id": 18, "ruleCategory": "Combat", "content": "RuleCategory_Combat" },
+      {
+        "id": 19,
+        "ruleCategory": "CommandSheet",
+        "content": "RuleCategory_CommandSheet"
+      },
+      {
+        "id": 20,
+        "ruleCategory": "CommandTokens",
+        "content": "RuleCategory_CommandTokens"
+      },
+      {
+        "id": 21,
+        "ruleCategory": "Commodities",
+        "content": "RuleCategory_Commodities"
+      },
+      {
+        "id": 22,
+        "ruleCategory": "ComponentAction",
+        "content": "RuleCategory_ComponentAction"
+      },
+      {
+        "id": 23,
+        "ruleCategory": "ComponentLimitations",
+        "content": "RuleCategory_ComponentLimitations"
+      },
+      {
+        "id": 24,
+        "ruleCategory": "Construction",
+        "content": "RuleCategory_Construction"
+      },
+      {
+        "id": 25,
+        "ruleCategory": "Control",
+        "content": "RuleCategory_Control"
+      },
+      { "id": 26, "ruleCategory": "Cost", "content": "RuleCategory_Cost" },
+      {
+        "id": 27,
+        "ruleCategory": "CustodiansToken",
+        "content": "RuleCategory_CustodiansToken"
+      },
+      { "id": 28, "ruleCategory": "Deals", "content": "RuleCategory_Deals" },
+      {
+        "id": 29,
+        "ruleCategory": "Defender",
+        "content": "RuleCategory_Defender"
+      },
+      { "id": 30, "ruleCategory": "Deploy", "content": "RuleCategory_Deploy" },
+      {
+        "id": 31,
+        "ruleCategory": "Destroyed",
+        "content": "RuleCategory_Destroyed"
+      },
+      {
+        "id": 32,
+        "ruleCategory": "Diplomacy",
+        "content": "RuleCategory_Diplomacy"
+      },
+      {
+        "id": 33,
+        "ruleCategory": "Elimination",
+        "content": "RuleCategory_Elimination"
+      },
+      {
+        "id": 34,
+        "ruleCategory": "Exhausted",
+        "content": "RuleCategory_Exhausted"
+      },
+      {
+        "id": 35,
+        "ruleCategory": "Exploration",
+        "content": "RuleCategory_Exploration"
+      },
+      {
+        "id": 36,
+        "ruleCategory": "FighterTokens",
+        "content": "RuleCategory_FighterTokens"
+      },
+      {
+        "id": 37,
+        "ruleCategory": "FleetPool",
+        "content": "RuleCategory_FleetPool"
+      },
+      {
+        "id": 38,
+        "ruleCategory": "FrontierTokens",
+        "content": "RuleCategory_FrontierTokens"
+      },
+      {
+        "id": 39,
+        "ruleCategory": "GameBoard",
+        "content": "RuleCategory_GameBoard"
+      },
+      {
+        "id": 40,
+        "ruleCategory": "GameRound",
+        "content": "RuleCategory_GameRound"
+      },
+      {
+        "id": 41,
+        "ruleCategory": "GravityRift",
+        "content": "RuleCategory_GravityRift"
+      },
+      {
+        "id": 42,
+        "ruleCategory": "GroundCombat",
+        "content": "RuleCategory_GroundCombat"
+      },
+      {
+        "id": 43,
+        "ruleCategory": "GroundForces",
+        "content": "RuleCategory_GroundForces"
+      },
+      {
+        "id": 44,
+        "ruleCategory": "Hyperlanes",
+        "content": "RuleCategory_Hyperlanes"
+      },
+      {
+        "id": 45,
+        "ruleCategory": "Imperial",
+        "content": "RuleCategory_Imperial"
+      },
+      {
+        "id": 46,
+        "ruleCategory": "InfantryTokens",
+        "content": "RuleCategory_InfantryTokens"
+      },
+      {
+        "id": 47,
+        "ruleCategory": "Influence",
+        "content": "RuleCategory_Influence"
+      },
+      {
+        "id": 48,
+        "ruleCategory": "InitiativeOrder",
+        "content": "RuleCategory_InitiativeOrder"
+      },
+      {
+        "id": 49,
+        "ruleCategory": "Invasion",
+        "content": "RuleCategory_Invasion"
+      },
+      {
+        "id": 51,
+        "ruleCategory": "LeaderSheet",
+        "content": "RuleCategory_LeaderSheet"
+      },
+      {
+        "id": 50,
+        "ruleCategory": "Leaders",
+        "content": "RuleCategory_Leaders"
+      },
+      {
+        "id": 52,
+        "ruleCategory": "Leadership",
+        "content": "RuleCategory_Leadership"
+      },
+      {
+        "id": 53,
+        "ruleCategory": "LegendaryPlanets",
+        "content": "RuleCategory_LegendaryPlanets"
+      },
+      {
+        "id": 54,
+        "ruleCategory": "MecatolRex",
+        "content": "RuleCategory_MecatolRex"
+      },
+      { "id": 55, "ruleCategory": "Mechs", "content": "RuleCategory_Mechs" },
+      {
+        "id": 56,
+        "ruleCategory": "Modifiers",
+        "content": "RuleCategory_Modifiers"
+      },
+      { "id": 57, "ruleCategory": "Move", "content": "RuleCategory_Move" },
+      {
+        "id": 58,
+        "ruleCategory": "Movement",
+        "content": "RuleCategory_Movement"
+      },
+      { "id": 59, "ruleCategory": "Nebula", "content": "RuleCategory_Nebula" },
+      {
+        "id": 60,
+        "ruleCategory": "Neighbors",
+        "content": "RuleCategory_Neighbors"
+      },
+      {
+        "id": 62,
+        "ruleCategory": "ObjectiveCards",
+        "content": "RuleCategory_ObjectiveCards"
+      },
+      {
+        "id": 63,
+        "ruleCategory": "Opponent",
+        "content": "RuleCategory_Opponent"
+      },
+      { "id": 64, "ruleCategory": "Pds", "content": "RuleCategory_Pds" },
+      {
+        "id": 66,
+        "ruleCategory": "Planets",
+        "content": "RuleCategory_Planets"
+      },
+      {
+        "id": 65,
+        "ruleCategory": "PlanetaryShield",
+        "content": "RuleCategory_PlanetaryShield"
+      },
+      {
+        "id": 67,
+        "ruleCategory": "Politics",
+        "content": "RuleCategory_Politics"
+      },
+      {
+        "id": 68,
+        "ruleCategory": "ProducingUnits",
+        "content": "RuleCategory_ProducingUnits"
+      },
+      {
+        "id": 69,
+        "ruleCategory": "Production",
+        "content": "RuleCategory_Production"
+      },
+      {
+        "id": 70,
+        "ruleCategory": "PromissoryNotes",
+        "content": "RuleCategory_PromissoryNotes"
+      },
+      { "id": 71, "ruleCategory": "Purge", "content": "RuleCategory_Purge" },
+      {
+        "id": 72,
+        "ruleCategory": "Readied",
+        "content": "RuleCategory_Readied"
+      },
+      {
+        "id": 73,
+        "ruleCategory": "Reinforcements",
+        "content": "RuleCategory_Reinforcements"
+      },
+      { "id": 74, "ruleCategory": "Relics", "content": "RuleCategory_Relics" },
+      {
+        "id": 75,
+        "ruleCategory": "Rerolls",
+        "content": "RuleCategory_Rerolls"
+      },
+      {
+        "id": 76,
+        "ruleCategory": "Resources",
+        "content": "RuleCategory_Resources"
+      },
+      { "id": 77, "ruleCategory": "Ships", "content": "RuleCategory_Ships" },
+      {
+        "id": 78,
+        "ruleCategory": "SpaceCannon",
+        "content": "RuleCategory_SpaceCannon"
+      },
+      {
+        "id": 79,
+        "ruleCategory": "SpaceCombat",
+        "content": "RuleCategory_SpaceCombat"
+      },
+      {
+        "id": 80,
+        "ruleCategory": "SpaceDock",
+        "content": "RuleCategory_SpaceDock"
+      },
+      {
+        "id": 81,
+        "ruleCategory": "Speaker",
+        "content": "RuleCategory_Speaker"
+      },
+      {
+        "id": 82,
+        "ruleCategory": "StatusPhase",
+        "content": "RuleCategory_StatusPhase"
+      },
+      {
+        "id": 83,
+        "ruleCategory": "StrategicAction",
+        "content": "RuleCategory_StrategicAction"
+      },
+      {
+        "id": 84,
+        "ruleCategory": "StrategyCard",
+        "content": "RuleCategory_StrategyCard"
+      },
+      {
+        "id": 85,
+        "ruleCategory": "StrategyPhase",
+        "content": "RuleCategory_StrategyPhase"
+      },
+      {
+        "id": 86,
+        "ruleCategory": "Structures",
+        "content": "RuleCategory_Structures"
+      },
+      {
+        "id": 87,
+        "ruleCategory": "Supernova",
+        "content": "RuleCategory_Supernova"
+      },
+      {
+        "id": 88,
+        "ruleCategory": "SustainDamage",
+        "content": "RuleCategory_SustainDamage"
+      },
+      {
+        "id": 89,
+        "ruleCategory": "SystemTiles",
+        "content": "RuleCategory_SystemTiles"
+      },
+      {
+        "id": 90,
+        "ruleCategory": "TacticalAction",
+        "content": "RuleCategory_TacticalAction"
+      },
+      {
+        "id": 92,
+        "ruleCategory": "TechnologySystem",
+        "content": "RuleCategory_TechnologySystem"
+      },
+      {
+        "id": 91,
+        "ruleCategory": "Technology",
+        "content": "RuleCategory_Technology"
+      },
+      { "id": 93, "ruleCategory": "Trade", "content": "RuleCategory_Trade" },
+      {
+        "id": 94,
+        "ruleCategory": "TradeGoods",
+        "content": "RuleCategory_TradeGoods"
+      },
+      {
+        "id": 95,
+        "ruleCategory": "Transactions",
+        "content": "RuleCategory_Transactions"
+      },
+      {
+        "id": 96,
+        "ruleCategory": "Transport",
+        "content": "RuleCategory_Transport"
+      },
+      { "id": 97, "ruleCategory": "Units", "content": "RuleCategory_Units" },
+      {
+        "id": 98,
+        "ruleCategory": "UnitUpgrades",
+        "content": "RuleCategory_UnitUpgrades"
+      },
+      {
+        "id": 99,
+        "ruleCategory": "VictoryPoints",
+        "content": "RuleCategory_VictoryPoints"
+      },
+      {
+        "id": 100,
+        "ruleCategory": "Warfare",
+        "content": "RuleCategory_Warfare"
+      },
+      {
+        "id": 101,
+        "ruleCategory": "WormholeNexus",
+        "content": "RuleCategory_WormholeNexus"
+      },
+      {
+        "id": 102,
+        "ruleCategory": "Wormholes",
+        "content": "RuleCategory_Wormholes"
+      }
+    ]
+  },
+  "problemDetails": {
+    "type": "",
+    "title": "",
+    "status": null,
+    "detail": "",
+    "instance": ""
+  }
+}

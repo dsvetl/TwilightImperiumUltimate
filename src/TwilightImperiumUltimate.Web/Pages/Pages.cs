@@ -6,6 +6,12 @@ public static class Pages
     public const string Index = "/";
 
     // Game
+    public const string Game = "/game";
+
+    public const string Community = "/community/galaxy-map";
+
+    public const string Tools = "/tools/milty-draft";
+
     public const string Factions = "/game/factions";
 
     public const string FactionsDS = "/game/factions-discordant-stars";
@@ -14,9 +20,11 @@ public static class Pages
 
     public const string Cards = "/game/cards";
 
-    public const string SystemTiles = "/game/systemtiles";
+    public const string Board = "/game/board";
 
-    public const string Planets = "/game/planets";
+    public const string SystemTiles = Board;
+
+    public const string Planets = Board;
 
     public const string Statistics = "/game/statistics";
 
@@ -96,14 +104,24 @@ public static class Pages
 
     public const string TiglRankings = "/community/tigl/rankings";
 
-    // Rules
+    // Game library
+    public const string GameReference = "/game/reference";
+    public const string GameResources = "/game/resources";
+
+    // Legacy and administration
     public const string Rules = "/rules";
+
+    public const string RulesReference = GameReference;
+
+    public const string RulesFactions = Factions;
+
+    public const string RulesComponents = Cards;
 
     public const string Faq = "/rules/faq";
 
     public const string ChatGPT = "/rules/chatgpt";
 
-    public const string Resources = "/rules/resources";
+    public const string Resources = GameResources;
 
     // About
     public const string About = "/about";

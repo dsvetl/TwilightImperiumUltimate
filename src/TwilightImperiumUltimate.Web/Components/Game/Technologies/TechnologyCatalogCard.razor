@@ -1,0 +1,41 @@
+@inject IPathProvider PathProvider
+
+<article class="technology-card ti-card">
+    <img class="technology-image"
+         src="@PathProvider.GetTechnologyImagePath(Technology.TechnologyName)"
+         alt="@LibraryFormatting.Identifier(Technology.Name)"
+         loading="lazy" />
+    <div class="technology-card__content">
+        <header>
+            <h4 class="ti-title">@LibraryFormatting.Identifier(Technology.Name)</h4>
+            <img src="@PathProvider.GetTechnologyIconPath(Technology.Type)"
+                 alt="@LibraryFormatting.Identifier(Technology.Type.ToString())"
+                 title="@LibraryFormatting.Identifier(Technology.Type.ToString())" />
+        </header>
+        @if (HasDetails || HasNotes)
+        {
+            <footer>
+                @if (HasDetails)
+                {
+                    <button type="button" @onclick="ToggleDetails">@(_showDetails ? "Hide details" : "Show details")</button>
+                }
+                @if (HasNotes)
+                {
+                    <button type="button" @onclick="ToggleNotes">@(_showNotes ? "Hide notes" : "Show notes")</button>
+                }
+            </footer>
+        }
+        @if (_showDetails)
+        {
+            <div class="technology-details ti-prose">@((MarkupString)Technology.Text)</div>
+        }
+        @if (_showNotes)
+        {
+            <aside class="technology-notes ti-prose">@((MarkupString)Notes)</aside>
+        }
+        @if (Faqs.Count > 0)
+        {
+            <FaqEntries Items="@Faqs" />
+        }
+    </div>
+</article>

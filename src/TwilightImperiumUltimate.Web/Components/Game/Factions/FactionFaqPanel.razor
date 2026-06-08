@@ -1,0 +1,86 @@
+@using System.Net
+
+@if (_loading)
+{
+    <ContentState Title="Loading faction FAQ" />
+}
+else
+{
+    <RulesSectionedDocument Html="@Notes"
+                            AriaLabel="Faction note sections"
+                            DetailedIndex="true" />
+    @if (Faqs.Count > 0)
+    {
+        <FaqEntries Items="@Faqs" />
+    }
+}
+
+@code {
+    private IReadOnlyList<FaqDto> Faqs { get; set; } = [];
+    private string _importedNotes = string.Empty;
+    private bool _loading = true;
+
+    [Parameter, EditorRequired] public FactionDto Faction { get; set; } = default!;
+    [Inject] private ILibraryDataService Data { get; set; } = default!;
+    [Inject] private HttpClient Http { get; set; } = default!;
+    [Inject] private NavigationManager Navigation { get; set; } = default!;
+
+    private string Notes => string.IsNullOrWhiteSpace(_importedNotes)
+        ? RulesContentCatalog.GetFactionNotes(Faction.FactionName)
+        : _importedNotes;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        _loading = true;
+        _importedNotes = string.Empty;
+        var rulesTask = Data.GetRulesAsync();
+        var rulingsTask = LoadImportedRulingsAsync();
+        await Task.WhenAll(rulesTask, rulingsTask);
+        Faqs = (await rulesTask).Faqs
+            .Where(faq => faq.ComponentName.Equals(Faction.FactionName.ToString(), StringComparison.OrdinalIgnoreCase))
+            .ToArray();
+        var factionTitle = RulingsCatalogIndex.Normalize(LibraryFormatting.Faction(Faction.FactionName));
+        var imported = (await rulingsTask)?.Items.FirstOrDefault(item =>
+            RulingsCatalogIndex.Normalize(item.Title) == factionTitle);
+        _importedNotes = imported is null
+            ? string.Empty
+            : string.Join(
+                string.Empty,
+                imported.Sections.Select(section =>
+                    $"{SectionHeading(section.Title)}{section.Html}"));
+        _loading = false;
+    }
+
+    private async Task<RulingsCatalog?> LoadImportedRulingsAsync()
+    {
+        try
+        {
+            return await Http.GetFromJsonAsync<RulingsCatalog>(
+                Navigation.ToAbsoluteUri("/data/faction-rulings.json"));
+        }
+        catch (HttpRequestException)
+        {
+            return null;
+        }
+        catch (NotSupportedException)
+        {
+            return null;
+        }
+        catch (System.Text.Json.JsonException)
+        {
+            return null;
+        }
+    }
+
+    private static string SectionHeading(string title)
+    {
+        var typeStart = title.LastIndexOf(" (", StringComparison.Ordinal);
+        if (typeStart < 0 || !title.EndsWith(')'))
+            return $"<h1>{WebUtility.HtmlEncode(title)}</h1>";
+
+        var name = title[..typeStart];
+        var type = title[(typeStart + 1)..];
+        return $"<h1>{WebUtility.HtmlEncode(name)} <sub>{WebUtility.HtmlEncode(type)}</sub></h1>";
+    }
+
+}

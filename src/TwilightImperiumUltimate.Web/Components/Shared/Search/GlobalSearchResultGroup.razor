@@ -1,0 +1,20 @@
+@using TwilightImperiumUltimate.Web.Services.Search
+
+<section class="search-result-group">
+    <h3 class="handel">@Category</h3>
+    @foreach (var result in Results)
+    {
+        <GlobalSearchResult Result="@result" OnNavigate="@OnNavigate" />
+    }
+</section>
+
+@code {
+    [Parameter, EditorRequired]
+    public string Category { get; set; } = string.Empty;
+
+    [Parameter, EditorRequired]
+    public IReadOnlyList<SearchDocument> Results { get; set; } = [];
+
+    [Parameter]
+    public EventCallback<string> OnNavigate { get; set; }
+}

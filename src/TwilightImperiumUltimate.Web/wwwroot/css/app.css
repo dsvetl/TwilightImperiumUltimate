@@ -1,398 +1,436 @@
 /* ==================== FONTS ====================== */
 @font-face {
-    font-family: 'Bodoni'; /* Twilight Imperium logo font */
-    src: url('/resources/fonts/Bodoni Poster Compressed.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Bodoni"; /* Twilight Imperium logo font */
+  src: url("/resources/fonts/Bodoni Poster Compressed.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Handel'; /* Ultimate font */
-    src: url('/resources/fonts/Handel Gothic D Bold.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Handel"; /* Ultimate font */
+  src: url("/resources/fonts/Handel Gothic D Bold.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Handel CZ'; /* Ultimate font with czech letters */
-    src: url('/resources/fonts/Handel Gothic Regular.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Handel CZ"; /* Ultimate font with czech letters */
+  src: url("/resources/fonts/Handel Gothic Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Myriad Pro Regular';
-    src: url('/resources/fonts/Myriad Pro Regular.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Myriad Pro Regular";
+  src: url("/resources/fonts/Myriad Pro Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Myriad Pro Italic';
-    src: url('/resources/fonts/Myriad Pro Italic.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Myriad Pro Italic";
+  src: url("/resources/fonts/Myriad Pro Italic.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Myriad Pro Bold';
-    src: url('/resources/fonts/Myriad Pro Bold.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Myriad Pro Bold";
+  src: url("/resources/fonts/Myriad Pro Bold.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Myriad Title';
-    src: url('/resources/fonts/Myriad Title.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Myriad Title";
+  src: url("/resources/fonts/Myriad Title.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Proda Sans';
-    src: url('/resources/fonts/Proda Sans Italic.otf') format('opentype');
-    font-weight: normal;
-    font-style: italic;
+  font-family: "Proda Sans";
+  src: url("/resources/fonts/Proda Sans Italic.otf") format("opentype");
+  font-weight: normal;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: 'Slider';
-    src: url('/resources/fonts/Slider Regular.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Slider";
+  src: url("/resources/fonts/Slider Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 .background {
-    background: rgba(0,0,0,0.5);
-    height: auto;
+  background: rgba(0, 0, 0, 0.5);
+  height: auto;
 }
 
 .padding {
-    padding: 2% 2% 2% 2%;
+  padding: 2% 2% 2% 2%;
 }
 
 /* ====================== SCROLLBAR ========================= */
 html::-webkit-scrollbar {
-    width: 12px;
+  width: 12px;
 }
 
 html::-webkit-scrollbar-track {
-    background: #333;
+  background: #333;
 }
 
 html::-webkit-scrollbar-thumb {
-    background: #0024ff;
+  background: #0024ff;
 }
 
 html::-webkit-scrollbar-button {
-    background-color: #333;
-    color: #0024ff;
+  background-color: #333;
+  color: #0024ff;
 }
 
 html {
-    overflow-y: scroll;
+  overflow-y: scroll;
 
-    background-image: url('/resources/images/shared/Twilight_imperium_ultimate_background.webp');
-    background-position: center center;
-    background-repeat: repeat-y;
-    background-size: cover; /* always cover viewport */
-    background-attachment: fixed; /* stays fixed across pages and scrolls */
-    background-color: #000; /* fallback */
+  background-image: url("/resources/images/shared/Twilight_imperium_ultimate_background.webp");
+  background-position: center center;
+  background-repeat: repeat-y;
+  background-size: cover; /* always cover viewport */
+  background-attachment: fixed; /* stays fixed across pages and scrolls */
+  background-color: #000; /* fallback */
 }
 
 /* ========================= TEXT =========================== */
 .bodoni {
-    font-family: Bodoni, fallback, sans-serif;
+  font-family: Bodoni, fallback, sans-serif;
 }
 
 .handel {
-    font-family: Handel, fallback, sans-serif;
+  font-family: Handel, fallback, sans-serif;
 }
 
 .handel-cz {
-    font-family: Handel CZ, fallback, sans-serif;
+  font-family:
+    Handel CZ,
+    fallback,
+    sans-serif;
 }
 
 .myriad-pro-regular {
-    font-family: Myriad Pro Regular, fallback, sans-serif;
+  font-family:
+    Myriad Pro Regular,
+    fallback,
+    sans-serif;
 }
 
 .myriad-pro-italic {
-    font-family: Myriad Pro Italic, fallback, sans-serif;
+  font-family:
+    Myriad Pro Italic,
+    fallback,
+    sans-serif;
 }
 
 .myriad-pro-bold {
-    font-family: Myriad Pro Bold, fallback, sans-serif;
+  font-family:
+    Myriad Pro Bold,
+    fallback,
+    sans-serif;
 }
 
 .myriad-title {
-    font-family: Myriad Title, fallback, sans-serif;
+  font-family:
+    Myriad Title,
+    fallback,
+    sans-serif;
 }
 
 .proda-sans-italic {
-    font-family: Proda Sans, fallback, sans-serif;
+  font-family:
+    Proda Sans,
+    fallback,
+    sans-serif;
 }
 
 .slider {
-    font-family: Slider, fallback, sans-serif;
+  font-family: Slider, fallback, sans-serif;
 }
 
 .shadow {
-    text-shadow: 0px 2px 6px rgba(0, 0, 0, 1), 2px 0px 6px rgba(0, 0, 0, 1), 0px -2px 6px rgba(0, 0, 0, 1), -2px 0px 6px rgba(0, 0, 0, 1), 1px 1px 6px rgba(0, 0, 0, 1), 1px -1px 6px rgba(0, 0, 0, 1), -1px 1px 6px rgba(0, 0, 0, 1), -1px -1px 6px rgba(0, 0, 0, 1);
+  text-shadow:
+    0px 2px 6px rgba(0, 0, 0, 1),
+    2px 0px 6px rgba(0, 0, 0, 1),
+    0px -2px 6px rgba(0, 0, 0, 1),
+    -2px 0px 6px rgba(0, 0, 0, 1),
+    1px 1px 6px rgba(0, 0, 0, 1),
+    1px -1px 6px rgba(0, 0, 0, 1),
+    -1px 1px 6px rgba(0, 0, 0, 1),
+    -1px -1px 6px rgba(0, 0, 0, 1);
 }
 
 .loading-text {
-    position: fixed; /* stays in screen center */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: fixed; /* stays in screen center */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-    z-index: 9999;
-    pointer-events: none; /* avoid blocking clicks if Blazor loads slowly */
+  z-index: 9999;
+  pointer-events: none; /* avoid blocking clicks if Blazor loads slowly */
 
-    font-family: Handel, fallback, sans-serif !important;
-    font-size: 48px !important;
-    font-weight: bold !important;
-    color: white !important;
+  font-family: Handel, fallback, sans-serif !important;
+  font-size: 48px !important;
+  font-weight: bold !important;
+  color: white !important;
 
-    text-align: center !important;
-    text-transform: uppercase !important;
-    text-shadow: 0px 2px 6px rgba(0, 0, 0, 1), 2px 0px 6px rgba(0, 0, 0, 1), 0px -2px 6px rgba(0, 0, 0, 1), -2px 0px 6px rgba(0, 0, 0, 1), 1px 1px 6px rgba(0, 0, 0, 1), 1px -1px 6px rgba(0, 0, 0, 1), -1px 1px 6px rgba(0, 0, 0, 1), -1px -1px 6px rgba(0, 0, 0, 1) !important;
+  text-align: center !important;
+  text-transform: uppercase !important;
+  text-shadow:
+    0px 2px 6px rgba(0, 0, 0, 1),
+    2px 0px 6px rgba(0, 0, 0, 1),
+    0px -2px 6px rgba(0, 0, 0, 1),
+    -2px 0px 6px rgba(0, 0, 0, 1),
+    1px 1px 6px rgba(0, 0, 0, 1),
+    1px -1px 6px rgba(0, 0, 0, 1),
+    -1px 1px 6px rgba(0, 0, 0, 1),
+    -1px -1px 6px rgba(0, 0, 0, 1) !important;
 }
 
 .title {
-    font-size: 28px;
+  font-size: 28px;
 }
 
 .text-small {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .text-break {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    white-space: normal;
-    word-break: break-all;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  word-break: break-all;
 }
 
 .text-break-all {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    white-space: normal;
-    word-break: break-all;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  word-break: break-all;
 }
 
 .text-no-overflow {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .white {
-    color: white;
+  color: white;
 }
 
 .margin-top-10 {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .margin-top-50 {
-    margin-top: 50px;
+  margin-top: 50px;
 }
 
 .mr-15 {
-    margin-right: 15px;
+  margin-right: 15px;
 }
 
 .ml-15 {
-    margin-left: 15px;
+  margin-left: 15px;
 }
 
 .span-1 {
-    grid-column: span 1;
+  grid-column: span 1;
 }
 
 .span-2 {
-    grid-column: span 2;
+  grid-column: span 2;
 }
 
 .span-3 {
-    grid-column: span 3;
+  grid-column: span 3;
 }
 
 .span-4 {
-    grid-column: span 4;
+  grid-column: span 4;
 }
 
 .span-5 {
-    grid-column: span 5;
+  grid-column: span 5;
 }
 
 .span-6 {
-    grid-column: span 6;
+  grid-column: span 6;
 }
 
 .span-7 {
-    grid-column: span 7;
+  grid-column: span 7;
 }
 
 .span-8 {
-    grid-column: span 8;
+  grid-column: span 8;
 }
 
 .span-9 {
-    grid-column: span 9;
+  grid-column: span 9;
 }
 
 .span-10 {
-    grid-column: span 10;
+  grid-column: span 10;
 }
 
 .span-11 {
-    grid-column: span 11;
+  grid-column: span 11;
 }
 
 .span-12 {
-    grid-column: span 12;
+  grid-column: span 12;
 }
 
 /* ==================== GENERAL LAYOUT ====================== */
 body {
-    width: 100%;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    background: transparent;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: transparent;
 }
 
 #app {
-    width: 100%;
-    display: flex;
+  width: 100%;
+  display: flex;
 }
 
 main {
-    height: 100%;
-    width: 1920px;
-    position: relative;
-    box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  min-width: 0;
+  position: relative;
+  box-sizing: border-box;
 }
 
 .clickable {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .flex-column-center {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /*main-axis*/
-    justify-items: center; /*main-axis*/
-    align-items: center; /*cross-axis*/
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /*main-axis*/
+  justify-items: center; /*main-axis*/
+  align-items: center; /*cross-axis*/
 }
 
 .flex-column {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .flex-row {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .button {
-    border-radius: 10px;
-    border: 2px solid black;
-    background-color: rgba(0, 0, 255, 0.3);
-    transition: background-color 0.3s ease;
-    padding: 10px;
-    box-sizing: border-box;
+  border-radius: 10px;
+  border: 2px solid black;
+  background-color: rgba(0, 0, 255, 0.3);
+  transition: background-color 0.3s ease;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .button-disabled {
-    border-radius: 10px;
-    border: 2px solid black;
-    background-color: rgba(128, 128, 128, 0.3);
-    transition: background-color 0.3s ease;
-    padding: 10px;
-    box-sizing: border-box;
+  border-radius: 10px;
+  border: 2px solid black;
+  background-color: rgba(128, 128, 128, 0.3);
+  transition: background-color 0.3s ease;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .button:hover {
-    background-color: white;
+  background-color: white;
 }
 
 /* ========== RADZEN CHART OVERRIDES ========== */
 .rz-tick-text,
 .rz-chart svg .rz-tick-text {
-    fill: white !important;
-    color: white !important;
-    font-family: 'Handel Gothic', Handel, fallback, sans-serif !important;
-    font-size: 11px !important;
+  fill: white !important;
+  color: white !important;
+  font-family: "Handel Gothic", Handel, fallback, sans-serif !important;
+  font-size: 11px !important;
 }
 
 .rz-legend-item-text,
 .rz-chart svg .rz-legend-item-text {
-    fill: white !important;
-    color: white !important;
-    font-family: 'Handel Gothic', Handel, fallback, sans-serif !important;
+  fill: white !important;
+  color: white !important;
+  font-family: "Handel Gothic", Handel, fallback, sans-serif !important;
 }
 
 .rz-axis-title,
 .rz-chart svg .rz-axis-title {
-    fill: white !important;
-    color: white !important;
-    font-family: 'Handel Gothic', Handel, fallback, sans-serif !important;
-    font-size: 13px !important;
+  fill: white !important;
+  color: white !important;
+  font-family: "Handel Gothic", Handel, fallback, sans-serif !important;
+  font-size: 13px !important;
 }
 
 .rz-axis-title text,
 .rz-tick text,
 .rz-chart svg text {
-    fill: white !important;
-    color: white !important;
-    font-family: 'Handel Gothic', Handel, fallback, sans-serif !important;
+  fill: white !important;
+  color: white !important;
+  font-family: "Handel Gothic", Handel, fallback, sans-serif !important;
 }
 
 .rz-category-axis path,
 .rz-value-axis path,
 .rz-category-axis line,
 .rz-value-axis line {
-    stroke: white !important;
-    stroke-width: 2 !important;
+  stroke: white !important;
+  stroke-width: 2 !important;
 }
 
 /* ========== BLAZOR CSS ========== */
 #blazor-error-ui {
-    background: lightyellow;
-    bottom: 0;
-    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
-    display: none;
-    left: 0;
-    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
+  background: lightyellow;
+  bottom: 0;
+  box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+  display: none;
+  left: 0;
+  padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
 }
 
-    #blazor-error-ui .dismiss {
-        cursor: pointer;
-        position: absolute;
-        right: 0.75rem;
-        top: 0.5rem;
-    }
+#blazor-error-ui .dismiss {
+  cursor: pointer;
+  position: absolute;
+  right: 0.75rem;
+  top: 0.5rem;
+}
 
 .blazor-error-boundary {
-    background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTYiIGhlaWdodD0iNDkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIG92ZXJmbG93PSJoaWRkZW4iPjxkZWZzPjxjbGlwUGF0aCBpZD0iY2xpcDAiPjxyZWN0IHg9IjIzNSIgeT0iNTEiIHdpZHRoPSI1NiIgaGVpZ2h0PSI0OSIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMCkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMzUgLTUxKSI+PHBhdGggZD0iTTI2My41MDYgNTFDMjY0LjcxNyA1MSAyNjUuODEzIDUxLjQ4MzcgMjY2LjYwNiA1Mi4yNjU4TDI2Ny4wNTIgNTIuNzk4NyAyNjcuNTM5IDUzLjYyODMgMjkwLjE4NSA5Mi4xODMxIDI5MC41NDUgOTIuNzk1IDI5MC42NTYgOTIuOTk2QzI5MC44NzcgOTMuNTEzIDI5MSA5NC4wODE1IDI5MSA5NC42NzgyIDI5MSA5Ny4wNjUxIDI4OS4wMzggOTkgMjg2LjYxNyA5OUwyNDAuMzgzIDk5QzIzNy45NjMgOTkgMjM2IDk3LjA2NTEgMjM2IDk0LjY3ODIgMjM2IDk0LjM3OTkgMjM2LjAzMSA5NC4wODg2IDIzNi4wODkgOTMuODA3MkwyMzYuMzM4IDkzLjAxNjIgMjM2Ljg1OCA5Mi4xMzE0IDI1OS40NzMgNTMuNjI5NCAyNTkuOTYxIDUyLjc5ODUgMjYwLjQwNyA1Mi4yNjU4QzI2MS4yIDUxLjQ4MzcgMjYyLjI5NiA1MSAyNjMuNTA2IDUxWk0yNjMuNTg2IDY2LjAxODNDMjYwLjczNyA2Ni4wMTgzIDI1OS4zMTMgNjcuMTI0NSAyNTkuMzEzIDY5LjMzNyAyNTkuMzEzIDY5LjYxMDIgMjU5LjMzMiA2OS44NjA4IDI1OS4zNzEgNzAuMDg4N0wyNjEuNzk1IDg0LjAxNjEgMjY1LjM4IDg0LjAxNjEgMjY3LjgyMSA2OS43NDc1QzI2Ny44NiA2OS43MzA5IDI2Ny44NzkgNjkuNTg3NyAyNjcuODc5IDY5LjMxNzkgMjY3Ljg3OSA2Ny4xMTgyIDI2Ni40NDggNjYuMDE4MyAyNjMuNTg2IDY2LjAxODNaTTI2My41NzYgODYuMDU0N0MyNjEuMDQ5IDg2LjA1NDcgMjU5Ljc4NiA4Ny4zMDA1IDI1OS43ODYgODkuNzkyMSAyNTkuNzg2IDkyLjI4MzcgMjYxLjA0OSA5My41Mjk1IDI2My41NzYgOTMuNTI5NSAyNjYuMTE2IDkzLjUyOTUgMjY3LjM4NyA5Mi4yODM3IDI2Ny4zODcgODkuNzkyMSAyNjcuMzg3IDg3LjMwMDUgMjY2LjExNiA4Ni4wNTQ3IDI2My41NzYgODYuMDU0N1oiIGZpbGw9IiNGRkU1MDAiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvZz48L3N2Zz4=) no-repeat 1rem/1.8rem, #b32121;
-    padding: 1rem 1rem 1rem 3.7rem;
-    color: white;
+  background:
+    url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTYiIGhlaWdodD0iNDkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIG92ZXJmbG93PSJoaWRkZW4iPjxkZWZzPjxjbGlwUGF0aCBpZD0iY2xpcDAiPjxyZWN0IHg9IjIzNSIgeT0iNTEiIHdpZHRoPSI1NiIgaGVpZ2h0PSI0OSIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMCkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMzUgLTUxKSI+PHBhdGggZD0iTTI2My41MDYgNTFDMjY0LjcxNyA1MSAyNjUuODEzIDUxLjQ4MzcgMjY2LjYwNiA1Mi4yNjU4TDI2Ny4wNTIgNTIuNzk4NyAyNjcuNTM5IDUzLjYyODMgMjkwLjE4NSA5Mi4xODMxIDI5MC41NDUgOTIuNzk1IDI5MC42NTYgOTIuOTk2QzI5MC44NzcgOTMuNTEzIDI5MSA5NC4wODE1IDI5MSA5NC42NzgyIDI5MSA5Ny4wNjUxIDI4OS4wMzggOTkgMjg2LjYxNyA5OUwyNDAuMzgzIDk5QzIzNy45NjMgOTkgMjM2IDk3LjA2NTEgMjM2IDk0LjY3ODIgMjM2IDk0LjM3OTkgMjM2LjAzMSA5NC4wODg2IDIzNi4wODkgOTMuODA3MkwyMzYuMzM4IDkzLjAxNjIgMjM2Ljg1OCA5Mi4xMzE0IDI1OS40NzMgNTMuNjI5NCAyNTkuOTYxIDUyLjc5ODUgMjYwLjQwNyA1Mi4yNjU4QzI2MS4yIDUxLjQ4MzcgMjYyLjI5NiA1MSAyNjMuNTA2IDUxWk0yNjMuNTg2IDY2LjAxODNDMjYwLjczNyA2Ni4wMTgzIDI1OS4zMTMgNjcuMTI0NSAyNTkuMzEzIDY5LjMzNyAyNTkuMzEzIDY5LjYxMDIgMjU5LjMzMiA2OS44NjA4IDI1OS4zNzEgNzAuMDg4N0wyNjEuNzk1IDg0LjAxNjEgMjY1LjM4IDg0LjAxNjEgMjY3LjgyMSA2OS43NDc1QzI2Ny44NiA2OS43MzA5IDI2Ny44NzkgNjkuNTg3NyAyNjcuODc5IDY5LjMxNzkgMjY3Ljg3OSA2Ny4xMTgyIDI2Ni40NDggNjYuMDE4MyAyNjMuNTg2IDY2LjAxODNaTTI2My41NzYgODYuMDU0N0MyNjEuMDQ5IDg2LjA1NDcgMjU5Ljc4NiA4Ny4zMDA1IDI1OS43ODYgODkuNzkyMSAyNTkuNzg2IDkyLjI4MzcgMjYxLjA0OSA5My41Mjk1IDI2My41NzYgOTMuNTI5NSAyNjYuMTE2IDkzLjUyOTUgMjY3LjM4NyA5Mi4yODM3IDI2Ny4zODcgODkuNzkyMSAyNjcuMzg3IDg3LjMwMDUgMjY2LjExNiA4Ni4wNTQ3IDI2My41NzYgODYuMDU0N1oiIGZpbGw9IiNGRkU1MDAiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvZz48L3N2Zz4=)
+      no-repeat 1rem/1.8rem,
+    #b32121;
+  padding: 1rem 1rem 1rem 3.7rem;
+  color: white;
 }
 
-    .blazor-error-boundary::after {
-        content: "An error has occurred."
-    }
+.blazor-error-boundary::after {
+  content: "An error has occurred.";
+}

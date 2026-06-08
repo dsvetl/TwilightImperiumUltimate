@@ -1,0 +1,13 @@
+<nav class="alphabet-index handel" aria-label="Rule topics by letter">
+    @foreach (var letter in Letters)
+    {
+        if (AvailableLetters.Contains(letter))
+        {
+            <a href="@($"/game/reference#{AnchorId(letter)}")">@letter</a>
+        }
+        else
+        {
+            <span aria-hidden="true">@letter</span>
+        }
+    }
+</nav>

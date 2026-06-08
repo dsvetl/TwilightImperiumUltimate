@@ -1,14 +1,6 @@
 ﻿@page "/game/technologies"
-@using TwilightImperiumUltimate.Web.Components.Shared
-@using TwilightImperiumUltimate.Web.Components.Shared.Layouts
-@using TwilightImperiumUltimate.Web.Components.Shared.Text
-@using TwilightImperiumUltimate.Web.Resources;
-@using TwilightImperiumUltimate.Web.Components.Technologies
+@using TwilightImperiumUltimate.Web.Components.Game.Technologies
 
 <PageTitle>@Strings.Page_Technologies</PageTitle>
 
-<Page>
-    <TechnologyGrid />
-</Page>
-
-
+<TechnologyBrowser Type="@Type" Source="@Source" Version="@Version" />

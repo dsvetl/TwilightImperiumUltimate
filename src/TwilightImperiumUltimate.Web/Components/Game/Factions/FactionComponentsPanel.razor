@@ -1,0 +1,40 @@
+@inject IPathProvider PathProvider
+
+<div class="component-panel">
+    @if (Faction.PromissaryNotes.Count > 0)
+    {
+        <section>
+            <h3 class="ti-title">Promissory notes</h3>
+            <div class="component-images">
+                @foreach (var note in Faction.PromissaryNotes)
+                {
+                    <figure>
+                        <img src="@PathProvider.GetPromissoryNotePath(note.ToString())"
+                             alt="@LibraryFormatting.Identifier(note.ToString())" />
+                        <figcaption>@LibraryFormatting.Identifier(note.ToString())</figcaption>
+                    </figure>
+                }
+            </div>
+        </section>
+    }
+    @if (Faction.Breakthroughs.Count > 0)
+    {
+        <section>
+            <h3 class="ti-title">Breakthroughs</h3>
+            <div class="component-images">
+                @foreach (var breakthrough in Faction.Breakthroughs)
+                {
+                    <figure>
+                        <img src="@PathProvider.GetBreakthroughImagePath(breakthrough)"
+                             alt="@LibraryFormatting.Identifier(breakthrough.ToString())" />
+                        <figcaption>@LibraryFormatting.Identifier(breakthrough.ToString())</figcaption>
+                    </figure>
+                }
+            </div>
+        </section>
+    }
+</div>
+
+@code {
+    [Parameter, EditorRequired] public FactionDto Faction { get; set; } = default!;
+}

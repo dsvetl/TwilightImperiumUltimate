@@ -1,0 +1,89 @@
+<RulesCatalogLayout ActiveSection="reference" Title="Reference">
+    @if (!_loading && !_failed && RuleGroups.Count > 0)
+    {
+        <AlphabetIndex AvailableLetters="@AvailableLetters" />
+    }
+
+    @if (_loading)
+    {
+        <ContentState Title="Loading rules reference" />
+    }
+    else if (_failed)
+    {
+        <ContentState Mark="!" Title="Rules reference unavailable">
+            <Action><button class="rules-retry" @onclick="Retry">Retry</button></Action>
+        </ContentState>
+    }
+    else if (SelectedRule is not null)
+    {
+        <article class="rule-document ti-card">
+            <button type="button" @onclick="ClearSelection">‹ Rule topics</button>
+            <header class="rule-heading">
+                <span class="ti-eyebrow">
+                    @(SelectedRule.LegacyId is null ? "Rules reference" : $"Rule {SelectedRule.LegacyId}")
+                </span>
+                <div class="ti-meta" aria-label="Rule authority">
+                    @foreach (var source in SelectedSources)
+                    {
+                        var label = $"{source.Name}{(string.IsNullOrWhiteSpace(source.Version) ? null : $" · {source.Version}")}";
+                        @if (!string.IsNullOrWhiteSpace(source.Url))
+                        {
+                            <a class="ti-badge ti-badge--official rule-authority"
+                               href="@source.Url"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                <span class="rule-authority-icon" aria-hidden="true"></span>
+                                Authority · @label
+                            </a>
+                        }
+                        else
+                        {
+                            <span class="ti-badge ti-badge--official rule-authority">
+                                <span class="rule-authority-icon" aria-hidden="true"></span>
+                                Authority · @label
+                            </span>
+                        }
+                    }
+                </div>
+            </header>
+            <h2 class="ti-title">@SelectedRule.Title</h2>
+            <div class="ti-prose">@((MarkupString)SelectedRule.ContentHtml)</div>
+            @if (!string.IsNullOrWhiteSpace(SelectedRule.NotesHtml))
+            {
+                <aside class="rule-notes">
+                    <h3 class="ti-title">Notes</h3>
+                    <div class="ti-prose">@((MarkupString)SelectedRule.NotesHtml)</div>
+                </aside>
+            }
+            <nav aria-label="Adjacent rules">
+                @if (PreviousRule is not null) { <a href="@RuleUrl(PreviousRule)">‹ @PreviousRule.Title</a> }
+                @if (NextRule is not null) { <a href="@RuleUrl(NextRule)">@NextRule.Title ›</a> }
+            </nav>
+        </article>
+    }
+    else if (VisibleRules.Count == 0)
+    {
+        <ContentState Title="No matching rules" Message="Try a broader term." />
+    }
+    else
+    {
+        <section class="rule-topic-grid" aria-label="Rule topics">
+            @foreach (var group in RuleGroups)
+            {
+                <section id="@AlphabetIndex.AnchorId(group.Key)">
+                    <h2 class="ti-title">@group.Key</h2>
+                    <div>
+                        @foreach (var rule in group)
+                        {
+                            <a class="rule-topic ti-card" href="@RuleUrl(rule)">
+                                <span>@(rule.LegacyId?.ToString() ?? "NEW")</span>
+                                <strong>@rule.Title</strong>
+                                <b aria-hidden="true">›</b>
+                            </a>
+                        }
+                    </div>
+                </section>
+            }
+        </section>
+    }
+</RulesCatalogLayout>

@@ -1,32 +1,43 @@
-﻿.responsive-icon {
-    display: flex;
-    flex: 1 1 auto;
-    max-width: 90%;
-    height: auto;
-    padding: 0.25em;
-    align-self: center;
-    justify-self: center;
-    justify-content: center;
-    align-items: center;
+.faction-icon {
+  display: flex;
+  flex: 0 1 auto;
+  min-width: 48px;
+  min-height: 48px;
+  padding: 3px 6px;
+  gap: 7px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: white;
+  background: transparent;
+  cursor: pointer;
 }
 
-.link {
-    cursor: pointer;
+.faction-icon:hover,
+.faction-icon:focus-visible {
+  border-color: rgba(142, 207, 255, 0.45);
+  outline: none;
+}
+
+.faction-icon.selected {
+  border-color: #8ecfff;
+  color: #8ecfff;
+  background: rgba(142, 207, 255, 0.1);
 }
 
 .colorless {
-    filter: grayscale(100%);
+  filter: grayscale(100%);
 }
 
 img {
-    width: 100%;
-    max-width: 44px;
-    height: auto;
-    transition: transform 0.3s ease;
-    align-self: center;
-    justify-self: center;
+  width: 40px;
+  max-width: 44px;
+  height: auto;
+  transition: transform 0.2s ease;
 }
 
-    img:hover {
-        transform: scale(1.375);
-    }
+.faction-icon:hover img,
+.faction-icon:focus-visible img {
+  transform: scale(1.12);
+}

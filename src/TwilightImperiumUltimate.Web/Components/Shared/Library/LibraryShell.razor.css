@@ -1,0 +1,27 @@
+.library-shell {
+  width: min(calc(100% - 48px), var(--ti-content));
+  margin: 0 auto;
+  padding: 8px 0 64px;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 9000;
+  top: 8px;
+  left: 8px;
+  padding: 10px 14px;
+  color: var(--ti-space-950);
+  background: var(--ti-blue);
+  transform: translateY(-160%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+  .library-shell {
+    width: min(calc(100% - 24px), var(--ti-content));
+    padding-bottom: 40px;
+  }
+}

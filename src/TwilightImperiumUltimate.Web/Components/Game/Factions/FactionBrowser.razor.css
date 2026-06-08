@@ -1,0 +1,54 @@
+.faction-card {
+  content-visibility: auto;
+  contain-intrinsic-size: 190px;
+  display: grid;
+  gap: 14px;
+  align-content: center;
+  justify-items: center;
+  min-height: 190px;
+  padding: 22px 16px;
+  color: var(--ti-text);
+  text-align: center;
+  cursor: pointer;
+}
+
+.faction-card:hover,
+.faction-card:focus-visible {
+  border-color: var(--ti-blue);
+  background: var(--ti-surface-hover);
+}
+
+.faction-card img {
+  width: 88px;
+  height: 88px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 12px #000);
+}
+
+.faction-card strong {
+  font-size: 1.1rem;
+}
+
+.retry-button {
+  min-height: 42px;
+  margin-top: 18px;
+  padding: 0 18px;
+  color: var(--ti-text);
+  border: 1px solid var(--ti-blue);
+  border-radius: var(--ti-radius-sm);
+  background: rgba(31, 80, 111, 0.5);
+  cursor: pointer;
+}
+.faction-sections {
+  display: grid;
+  gap: 34px;
+}
+.faction-section > header {
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--ti-border);
+}
+.faction-section > header h2 {
+  margin-top: 5px;
+  font-size: 1.45rem;
+}

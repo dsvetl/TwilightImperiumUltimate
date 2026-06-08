@@ -1,0 +1,32 @@
+.setup-panel {
+  display: grid;
+  gap: 32px;
+}
+.setup-panel section {
+  display: grid;
+  gap: 14px;
+}
+.setup-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+.setup-item {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  min-height: 88px;
+  padding: 12px;
+}
+.setup-item img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+.setup-item span {
+  display: grid;
+  gap: 5px;
+}
+.setup-item small {
+  color: var(--ti-text-secondary);
+}

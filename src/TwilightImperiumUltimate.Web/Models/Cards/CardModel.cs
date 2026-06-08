@@ -11,4 +11,6 @@ public class CardModel
     public CardType CardType { get; set; }
 
     public GameVersion GameVersion { get; set; }
+
+    public int? SortOrder { get; set; }
 }

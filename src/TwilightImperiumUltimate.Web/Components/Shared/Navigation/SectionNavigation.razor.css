@@ -1,0 +1,96 @@
+.section-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+  width: 100%;
+  min-height: 46px;
+  margin: 0 auto 24px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(0, 0, 0, 0.5) 10%,
+    rgba(0, 0, 0, 0.5) 90%,
+    transparent
+  );
+}
+
+.section-navigation ::deep a {
+  position: relative;
+  flex: 1 1 135px;
+  max-width: 260px;
+  min-height: 46px;
+  padding: 12px 18px;
+  box-sizing: border-box;
+  color: white;
+  font-size: 19px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.section-navigation ::deep a::after {
+  position: absolute;
+  right: 25%;
+  bottom: 7px;
+  left: 25%;
+  height: 1px;
+  content: "";
+  background: #8ecfff;
+  opacity: 0;
+  transform: scaleX(0);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.section-navigation ::deep a:hover,
+.section-navigation ::deep a.active {
+  color: #8ecfff;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(18, 57, 87, 0.42),
+    transparent
+  );
+}
+
+.section-navigation ::deep a:hover::after,
+.section-navigation ::deep a.active::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.section-navigation ::deep a:focus-visible {
+  outline: 2px solid #8ecfff;
+  outline-offset: -4px;
+}
+
+@media (max-width: 768px) {
+  .section-navigation {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 18px;
+    background: rgba(5, 8, 14, 0.58);
+  }
+
+  .section-navigation ::deep a {
+    flex: 1 1 calc(33.333% - 1px);
+    max-width: none;
+    min-width: 110px;
+    min-height: 40px;
+    padding: 9px 10px;
+    font-size: 14px;
+    background: transparent;
+    white-space: nowrap;
+  }
+
+  .section-navigation ::deep a::after {
+    right: 20%;
+    bottom: 5px;
+    left: 20%;
+  }
+}

@@ -1,0 +1,81 @@
+<div class="faction-overview" @ref="_root">
+    <section class="overview-facts">
+        <div>
+            <span class="ti-eyebrow">Commodities</span>
+            <strong>@Faction.Commodities</strong>
+        </div>
+        <div>
+            <span class="ti-eyebrow">Complexity</span>
+            <strong>@LibraryFormatting.Identifier(Faction.ComplexityRating.ToString())</strong>
+        </div>
+        <div>
+            <span class="ti-eyebrow">Home system</span>
+            <strong>@LibraryFormatting.Identifier(Faction.HomeSystem.ToString())</strong>
+        </div>
+    </section>
+
+    <div class="overview-columns">
+        <section class="ti-prose">
+            <h3>Home system</h3>
+            <div>@((MarkupString)SystemInfo)</div>
+            @if (SystemStats.Count > 0)
+            {
+                <dl class="system-stats">
+                    @foreach (var stat in SystemStats)
+                    {
+                        <div>
+                            <dt>@stat.Label</dt>
+                            @if (!string.IsNullOrWhiteSpace(stat.Value))
+                            {
+                                <dd>@stat.Value</dd>
+                            }
+                        </div>
+                    }
+                </dl>
+            }
+        </section>
+        <section>
+            <h3 class="ti-title">Starting technologies</h3>
+            @if (Faction.StartingTechnologies.Count == 0)
+            {
+                <p class="ti-muted">No starting technologies.</p>
+            }
+            else
+            {
+                <ul class="starting-technologies">
+                    @foreach (var technology in Faction.StartingTechnologies)
+                    {
+                        <li>@LibraryFormatting.Identifier(technology.Name)</li>
+                    }
+                </ul>
+            }
+        </section>
+    </div>
+
+    <div class="faction-sheets">
+        @foreach (var sheet in FactionSheets)
+        {
+            <div class="faction-sheet-preview" data-sheet-preview>
+                <a class="ti-card faction-sheet-trigger"
+                   href="@sheet.ImageUrl"
+                   target="_blank"
+                   rel="noopener"
+                   aria-expanded="false"
+                   aria-controls="@sheet.PreviewId"
+                   data-sheet-trigger>
+                    Faction sheet · @sheet.Label
+                </a>
+                <aside class="faction-sheet-popover"
+                       id="@sheet.PreviewId"
+                       aria-label="@($"Faction sheet · {sheet.Label}")"
+                       data-sheet-popover>
+                    <img src="@sheet.ImageUrl"
+                         alt="@($"{LibraryFormatting.Faction(Faction.FactionName)} faction sheet, {sheet.Label.ToLowerInvariant()}")" />
+                    <a href="@sheet.ImageUrl" target="_blank" rel="noopener">
+                        Open full-size image
+                    </a>
+                </aside>
+            </div>
+        }
+    </div>
+</div>

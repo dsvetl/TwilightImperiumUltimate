@@ -1,0 +1,55 @@
+.alphabet-index {
+  display: grid;
+  grid-template-columns: repeat(26, minmax(28px, 1fr));
+  width: 100%;
+  min-height: 36px;
+  margin: -24px auto 22px;
+  border-top: 1px solid rgba(142, 207, 255, 0.1);
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(5, 12, 20, 0.38) 10%,
+    rgba(5, 12, 20, 0.38) 90%,
+    transparent
+  );
+}
+
+.alphabet-index a,
+.alphabet-index span {
+  display: grid;
+  min-width: 28px;
+  min-height: 36px;
+  place-items: center;
+  color: var(--ti-text-secondary);
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.alphabet-index a:hover,
+.alphabet-index a:focus-visible {
+  color: #8ecfff;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(18, 57, 87, 0.34),
+    transparent
+  );
+}
+
+.alphabet-index a:focus-visible {
+  outline: 2px solid #8ecfff;
+  outline-offset: -3px;
+}
+
+.alphabet-index span {
+  opacity: 0.22;
+}
+
+@media (max-width: 768px) {
+  .alphabet-index {
+    grid-template-columns: repeat(13, minmax(28px, 1fr));
+    margin-top: -18px;
+    background: rgba(5, 8, 14, 0.36);
+  }
+}

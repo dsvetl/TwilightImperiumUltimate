@@ -1,0 +1,10 @@
+<SectionNavigation Items="NavigationCatalog.Game"
+                   ActiveKey="@ActiveKey"
+                   AriaLabel="Game sections" />
+
+@code {
+    [Parameter]
+    public string ActiveSection { get; set; } = string.Empty;
+
+    private string ActiveKey => string.IsNullOrWhiteSpace(ActiveSection) ? "overview" : ActiveSection;
+}

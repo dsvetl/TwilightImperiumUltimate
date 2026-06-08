@@ -1,0 +1,26 @@
+.leader-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.leader-card {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+  text-align: center;
+}
+.leader-card img {
+  width: 100%;
+  max-height: 360px;
+  object-fit: contain;
+}
+.leader-card p {
+  margin: 0;
+  color: var(--ti-text-secondary);
+  line-height: 1.5;
+}
+@media (max-width: 820px) {
+  .leader-grid {
+    grid-template-columns: 1fr;
+  }
+}

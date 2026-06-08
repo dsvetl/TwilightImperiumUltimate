@@ -1,0 +1,59 @@
+<article class="faction-detail">
+    <button class="back-button" type="button" @onclick="OnClose">‹ All factions</button>
+
+    <header class="faction-identity ti-card">
+        <div class="faction-copy">
+            <div class="faction-title">
+                <img src="@($"/resources/images/shared/factionicons/{Faction.FactionName}.webp")" alt="" />
+                <span>
+                    <small class="ti-eyebrow">
+                        @LibraryFormatting.Source(Faction.GameVersion) · @LibraryFormatting.Version(Faction.GameVersion)
+                    </small>
+                    <h2 class="ti-title">@LibraryFormatting.Faction(Faction.FactionName)</h2>
+                </span>
+            </div>
+            <blockquote>@Quote</blockquote>
+        </div>
+        <img class="faction-art" src="@PathProvider.GetFactionImagePath(Faction.FactionName.ToString())"
+             alt="@LibraryFormatting.Faction(Faction.FactionName)" />
+    </header>
+
+    <nav class="faction-tabs" aria-label="Faction information">
+        @foreach (var tab in Sections)
+        {
+            <button type="button"
+                    class="@(tab.Key == CurrentSection ? "active" : null)"
+                    aria-current="@(tab.Key == CurrentSection ? "page" : null)"
+                    @onclick="() => SelectSection(tab.Key)">
+                @tab.Label
+            </button>
+        }
+    </nav>
+
+    <section class="faction-panel ti-card">
+        @switch (CurrentSection)
+        {
+            case "abilities":
+                <FactionAbilitiesPanel Faction="@Faction" />
+                break;
+            case "setup":
+                <FactionSetupPanel Faction="@Faction" />
+                break;
+            case "components":
+                <FactionComponentsPanel Faction="@Faction" />
+                break;
+            case "leaders":
+                <FactionLeadersPanel Faction="@Faction" />
+                break;
+            case "lore":
+                <FactionLorePanel Faction="@Faction" />
+                break;
+            case "faq":
+                <FactionFaqPanel Faction="@Faction" />
+                break;
+            default:
+                <FactionOverview Faction="@Faction" />
+                break;
+        }
+    </section>
+</article>

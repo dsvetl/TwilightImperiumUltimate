@@ -1,0 +1,34 @@
+@page "/game/planets"
+@page "/game/systemtiles"
+@using System.Web
+
+@code {
+    [Inject] private NavigationManager Navigation { get; set; } = default!;
+
+    protected override void OnInitialized()
+    {
+        var current = Navigation.ToAbsoluteUri(Navigation.Uri);
+        var path = current.AbsolutePath.TrimEnd('/');
+        var parameters = HttpUtility.ParseQueryString(current.Query);
+        parameters.Remove("view");
+        if (path.EndsWith("/planets", StringComparison.Ordinal))
+        {
+            parameters["view"] = "planets";
+            if (parameters["type"] is { Length: > 0 } type)
+            {
+                parameters["trait"] = type;
+                parameters.Remove("type");
+            }
+        }
+        else if (parameters["type"] is { Length: > 0 } type)
+        {
+            parameters["kind"] = type;
+            parameters.Remove("type");
+        }
+
+        var query = parameters.ToString();
+        Navigation.NavigateTo(
+            string.IsNullOrWhiteSpace(query) ? "/game/board" : $"/game/board?{query}",
+            replace: true);
+    }
+}

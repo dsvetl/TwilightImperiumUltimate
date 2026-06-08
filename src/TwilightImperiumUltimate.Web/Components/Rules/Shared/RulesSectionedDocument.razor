@@ -1,0 +1,8 @@
+@implements IAsyncDisposable
+
+<div class="sectioned-document" @ref="_root">
+    <nav class="section-index" data-section-index aria-label="@AriaLabel" hidden></nav>
+    <div class="sectioned-markup ti-prose" data-section-content>
+        @((MarkupString)Html)
+    </div>
+</div>

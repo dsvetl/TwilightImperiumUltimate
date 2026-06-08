@@ -1,0 +1,178 @@
+@inject IPathProvider PathProvider
+
+<GameCatalogLayout ActiveSection="board" Title="Board">
+    <div class="catalog-filter-stack">
+        <FilterChips Items="@LensFilters"
+                     Value="@_view"
+                     ValueChanged="SetView"
+                     AriaLabel="Board view" />
+        <FilterChips Items="@(_view == "planets" ? TraitFilters : KindFilters)"
+                     Value="@(_view == "planets" ? _trait : _kind)"
+                     ValueChanged="SetContextFilter"
+                     AriaLabel="@(_view == "planets" ? "Planet trait" : "System kind")" />
+        <CascadingFilterChips PrimaryItems="@ContentSourceFilters.Sources"
+                              PrimaryValue="@_source"
+                              PrimaryValueChanged="SetSource"
+                              SecondaryItems="@VersionFilters"
+                              SecondaryValue="@_version"
+                              SecondaryValueChanged="SetVersion"
+                              AriaLabel="Board source"
+                              SecondaryAriaLabel="Board set" />
+    </div>
+
+    @if (_loading)
+    {
+        <ContentState Title="Loading galactic atlas" />
+    }
+    else if (_failed)
+    {
+        <ContentState Mark="!" Title="Galactic atlas unavailable">
+            <Action><button class="catalog-retry" @onclick="Retry">Retry</button></Action>
+        </ContentState>
+    }
+    else if (SelectedPlanet is not null && SelectedTile is not null)
+    {
+        <article class="tile-detail ti-card">
+            <button type="button" @onclick="ShowSelectedSystem">
+                ‹ System @SelectedTile.SystemTileCode
+            </button>
+            <div>
+                <img src="@PathProvider.GetPlanetImagePath(SelectedPlanet.PlanetName.ToString())"
+                     alt="@($"{PlanetName(SelectedPlanet)} planet card")" />
+                <section>
+                    <span class="ti-eyebrow">
+                        @LibraryFormatting.Version(SelectedPlanet.GameVersion) ·
+                        System @SelectedTile.SystemTileCode
+                    </span>
+                    <h2 class="ti-title">@PlanetName(SelectedPlanet)</h2>
+                    <div class="planet-values">
+                        <strong><span>Resources</span>@SelectedPlanet.Resources</strong>
+                        <strong><span>Influence</span>@SelectedPlanet.Influence</strong>
+                    </div>
+                    <div class="ti-meta">
+                        @if (SelectedPlanet.PlanetTrait != PlanetTrait.Legendary)
+                        {
+                            <span class="ti-badge">
+                                @LibraryFormatting.Identifier(SelectedPlanet.PlanetTrait.ToString())
+                            </span>
+                        }
+                        @if (SelectedPlanet.TechnologySkip != TechnologyType.None)
+                        {
+                            <span class="ti-badge">
+                                @LibraryFormatting.Identifier(SelectedPlanet.TechnologySkip.ToString()) specialty
+                            </span>
+                        }
+                        @if (SelectedPlanet.IsLegendary)
+                        {
+                            <span class="ti-badge ti-badge--official">Legendary</span>
+                        }
+                    </div>
+                </section>
+            </div>
+        </article>
+    }
+    else if (SelectedTile is not null)
+    {
+        <article class="tile-detail ti-card">
+            <button type="button" @onclick="ClearSelection">‹ All systems</button>
+            <div>
+                <img src="@PathProvider.GetLargeTileImagePath(SelectedTile.SystemTileName)"
+                     alt="@($"System tile {SelectedTile.SystemTileCode}")" />
+                <section>
+                    <span class="ti-eyebrow">@LibraryFormatting.Version(SelectedTile.GameVersion)</span>
+                    <h2 class="ti-title">System @SelectedTile.SystemTileCode</h2>
+                    <div class="ti-meta"><span class="ti-badge">@Category(SelectedTile)</span></div>
+                    @if (SelectedTile.Planets.Count > 0)
+                    {
+                        <h3>Planets</h3>
+                        <div class="system-planets">
+                            @foreach (var planet in SelectedTile.Planets)
+                            {
+                                <button type="button" @onclick="() => SelectPlanet(planet)">
+                                    <strong>@PlanetName(planet)</strong>
+                                    <span>@planet.Resources / @planet.Influence</span>
+                                </button>
+                            }
+                        </div>
+                    }
+                </section>
+            </div>
+        </article>
+    }
+    else if (_view == "planets")
+    {
+        <div class="ti-version-sections" aria-label="Board planets">
+            @foreach (var group in VisiblePlanets
+                .GroupBy(item => item.Planet.GameVersion)
+                .OrderBy(group => LibraryFormatting.VersionOrder(group.Key)))
+            {
+                <section class="ti-version-section">
+                    <header class="ti-version-heading">
+                        <span class="ti-eyebrow">@LibraryFormatting.Source(group.Key)</span>
+                        <h2 class="ti-title">@LibraryFormatting.Version(group.Key)</h2>
+                    </header>
+                    <div class="board-planet-grid">
+                        @foreach (var item in group)
+                        {
+                            <button class="board-planet-card ti-card"
+                                    @key="item.Planet.Id"
+                                    @onclick="() => SelectPlanet(item.Planet)">
+                                <img src="@PathProvider.GetPlanetImagePath(item.Planet.PlanetName.ToString())"
+                                     alt=""
+                                     loading="lazy" />
+                                <span>
+                                    <strong class="ti-title">@PlanetName(item.Planet)</strong>
+                                    <small>System @item.Tile.SystemTileCode</small>
+                                    <span class="planet-card-values">
+                                        <b>R @item.Planet.Resources</b>
+                                        <b>I @item.Planet.Influence</b>
+                                    </span>
+                                </span>
+                            </button>
+                        }
+                    </div>
+                </section>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="ti-version-sections" aria-label="Board systems">
+            @foreach (var group in VisibleTiles
+                .GroupBy(tile => tile.GameVersion)
+                .OrderBy(group => LibraryFormatting.VersionOrder(group.Key)))
+            {
+                <section class="ti-version-section">
+                    <header class="ti-version-heading">
+                        <span class="ti-eyebrow">@LibraryFormatting.Source(group.Key)</span>
+                        <h2 class="ti-title">@LibraryFormatting.Version(group.Key)</h2>
+                    </header>
+                    <div class="tile-grid ti-grid">
+                        @foreach (var tile in group)
+                        {
+                            <button class="tile-card ti-card"
+                                    @key="tile"
+                                    @onclick="() => SelectTile(tile)">
+                                <img src="@PathProvider.GetLargeTileImagePath(tile.SystemTileName)"
+                                     alt=""
+                                     loading="lazy" />
+                                <span>
+                                    @if (ShowCategory(tile))
+                                    {
+                                        <small class="ti-eyebrow">@Category(tile)</small>
+                                    }
+                                    <strong class="ti-title">System @tile.SystemTileCode</strong>
+                                    <span>
+                                        @string.Join(
+                                            " · ",
+                                            tile.Planets.Select(planet => PlanetName(planet)))
+                                    </span>
+                                </span>
+                            </button>
+                        }
+                    </div>
+                </section>
+            }
+        </div>
+    }
+</GameCatalogLayout>

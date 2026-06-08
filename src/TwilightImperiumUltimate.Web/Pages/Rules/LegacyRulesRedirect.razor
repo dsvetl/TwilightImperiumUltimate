@@ -1,0 +1,60 @@
+@page "/rules"
+@page "/rules/reference"
+@page "/rules/reference/{RuleId:int}"
+@page "/rules/components"
+@page "/rules/components/{ItemKey}"
+@page "/rules/factions"
+@page "/rules/factions/{FactionKey}"
+@page "/rules/resources"
+@using System.Web
+
+@code {
+    [Parameter] public int? RuleId { get; set; }
+    [Parameter] public string? ItemKey { get; set; }
+    [Parameter] public string? FactionKey { get; set; }
+    [Inject] private NavigationManager Navigation { get; set; } = default!;
+
+    protected override void OnInitialized()
+    {
+        var current = Navigation.ToAbsoluteUri(Navigation.Uri);
+        var path = Navigation.ToBaseRelativePath(Navigation.Uri).Split('?', '#')[0];
+        var query = current.Query;
+        var target = path switch
+        {
+            "rules" => "/game",
+            "rules/reference" => $"/game/reference{query}",
+            _ when path.StartsWith("rules/reference/", StringComparison.Ordinal) =>
+                $"/game/reference/{RuleId}{query}",
+            "rules/components" => ComponentCatalogTarget(current.Query),
+            _ when path.StartsWith("rules/components/", StringComparison.Ordinal) =>
+                RulesContentCatalog.GetCanonicalComponentUrl(ItemKey ?? string.Empty),
+            "rules/factions" => "/game/factions?info=faq",
+            _ when path.StartsWith("rules/factions/", StringComparison.Ordinal) =>
+                $"/game/factions?faction={Uri.EscapeDataString(FactionKey ?? string.Empty)}&info=faq",
+            "rules/resources" => $"/game/resources{query}",
+            _ => "/game",
+        };
+
+        Navigation.NavigateTo(target, replace: true);
+    }
+
+    private static string ComponentCatalogTarget(string query)
+    {
+        var parameters = HttpUtility.ParseQueryString(query);
+        if (parameters["type"]?.Equals("technologies", StringComparison.OrdinalIgnoreCase) == true)
+        {
+            var type = parameters["subtype"];
+            return string.IsNullOrWhiteSpace(type)
+                ? "/game/technologies"
+                : $"/game/technologies?type={Uri.EscapeDataString(type)}";
+        }
+
+        var cardType = parameters["type"]?.ToLowerInvariant() switch
+        {
+            "relics" => "relic",
+            "objectives" => "objective",
+            _ => "action",
+        };
+        return cardType == "action" ? "/game/cards" : $"/game/cards?type={cardType}";
+    }
+}

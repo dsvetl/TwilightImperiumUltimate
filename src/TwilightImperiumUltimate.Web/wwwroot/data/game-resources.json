@@ -1,0 +1,137 @@
+[
+  {
+    "id": "ffg-learn-to-play",
+    "type": "Learn",
+    "title": "Learn to Play",
+    "description": "Official introductory rules for learning and teaching a first game.",
+    "version": "Base Game",
+    "url": "https://images-cdn.fantasyflightgames.com/filer_public/f3/c6/f3c66512-8e19-4f30-a0d4-d7d75701fd37/ti-k0289_learn_to_playcompressed.pdf",
+    "icon": "/resources/images/shared/icons/pdfdownload.webp"
+  },
+  {
+    "id": "ffg-lrr-2",
+    "type": "Reference",
+    "title": "Living Rules Reference and FAQ 2.0",
+    "description": "Official living rules, FAQ, errata, and clarifications through Prophecy of Kings.",
+    "version": "Prophecy of Kings",
+    "url": "https://images-cdn.fantasyflightgames.com/filer_public/51/55/51552c7f-c05c-445b-84bf-4b073456d008/ti10_pok_living_rules_reference_20_web.pdf",
+    "icon": "/resources/images/shared/icons/pdfdownload.webp"
+  },
+  {
+    "id": "ffg-guide-to-the-imperium",
+    "type": "Lore",
+    "title": "Guide to the Imperium",
+    "description": "Official guide to the setting, factions, and history of the Imperium.",
+    "version": "Base Game",
+    "url": "https://images-cdn.fantasyflightgames.com/filer_public/b6/d9/b6d969a2-21c2-4b1e-8d6f-ac6fec456b88/guide_to_the_imperium_10_web.pdf",
+    "icon": "/resources/images/shared/icons/pdfdownload.webp"
+  },
+  {
+    "id": "ffg-pok-rulebook",
+    "type": "Expansion",
+    "title": "Prophecy of Kings Rulebook",
+    "description": "Official rules for leaders, mechs, exploration, relics, hyperlanes, and eight-player games.",
+    "version": "Prophecy of Kings",
+    "url": "https://images-cdn.fantasyflightgames.com/filer_public/bd/a2/bda2d75d-0481-4563-a443-d45e4dea46f8/ti10_rulebook_web-good.pdf",
+    "icon": "/resources/images/shared/icons/pdfdownload.webp"
+  },
+  {
+    "id": "ffg-thunders-edge-rulebook",
+    "type": "Expansion",
+    "title": "Thunder's Edge Rulebook",
+    "description": "Official rules for the expansion's factions, breakthroughs, Fracture, and galactic events.",
+    "version": "Thunder's Edge",
+    "url": "https://images-cdn.fantasyflightgames.com/filer_public/ca/e7/cae7706f-cdb5-4ee1-a20c-7f76a13d135c/te_rulebook_web.pdf",
+    "icon": "/resources/images/shared/icons/pdfdownload.webp"
+  },
+  {
+    "id": "ffg-twilights-fall",
+    "type": "Game Mode",
+    "title": "Twilight's Fall Rulebook",
+    "description": "Official rules for the alternate Twilight's Fall mode from Thunder's Edge.",
+    "version": "Thunder's Edge",
+    "url": "https://images-cdn.fantasyflightgames.com/filer_public/7d/1a/7d1ab223-20f7-425d-bc4c-0bb37846d55b/te_twilights_fall_rulebook_web.pdf",
+    "icon": "/resources/images/shared/icons/pdfdownload.webp"
+  },
+  {
+    "id": "ffg-codex-1-rules",
+    "type": "Codex",
+    "title": "Twilight Codex I: Ordinian",
+    "description": "Official Omega updates, components, and rules from the first Twilight Codex.",
+    "version": "Codex Ordinian",
+    "url": "https://images-cdn.fantasyflightgames.com/filer_public/c7/c2/c7c2ac85-8d7a-46f1-a9c0-d633d89865ef/ti_codex_1_rules_compressed.pdf",
+    "icon": "/resources/images/shared/icons/pdfdownload.webp"
+  },
+  {
+    "id": "ffg-codex-1-cards",
+    "type": "Print and Play",
+    "title": "Twilight Codex I Cards",
+    "description": "Official print-and-play card sheets for Codex I.",
+    "version": "Codex Ordinian",
+    "url": "https://images-cdn.fantasyflightgames.com/filer_public/83/39/833992df-184a-42ae-87aa-3f511f5184ac/ti_codex_1_cards_crop_marks.pdf",
+    "icon": "/resources/images/shared/icons/pdfdownload.webp"
+  },
+  {
+    "id": "ffg-codex-2-rules",
+    "type": "Codex",
+    "title": "Twilight Codex II: Affinity",
+    "description": "Official Alliance variant, alliance cards, relics, and community maps.",
+    "version": "Codex Affinity",
+    "url": "https://images-cdn.fantasyflightgames.com/filer_public/ff/fe/fffe5e9d-33fb-4149-a3a2-cd6dfadb4de3/ti_codex_ii_rules_web.pdf",
+    "icon": "/resources/images/shared/icons/pdfdownload.webp"
+  },
+  {
+    "id": "ffg-codex-2-cards",
+    "type": "Print and Play",
+    "title": "Twilight Codex II Cards",
+    "description": "Official print-and-play card sheets for Codex II.",
+    "version": "Codex Affinity",
+    "url": "https://images-cdn.fantasyflightgames.com/filer_public/ac/8c/ac8c18a2-3080-4886-b0c2-b171c47cdb68/ti_codex_2_cards.pdf",
+    "icon": "/resources/images/shared/icons/pdfdownload.webp"
+  },
+  {
+    "id": "ffg-codex-3-rules",
+    "type": "Codex",
+    "title": "Twilight Codex III: Vigil",
+    "description": "Official Council Keleres rules and updated game components.",
+    "version": "Codex Vigil",
+    "url": "https://images-cdn.fantasyflightgames.com/filer_public/35/e1/35e10f37-4b6d-4479-a117-4e2c571ddfa7/ti_codex_volume_3_vigil_v2_1-compressed.pdf",
+    "icon": "/resources/images/shared/icons/pdfdownload.webp"
+  },
+  {
+    "id": "ffg-codex-3-cards",
+    "type": "Print and Play",
+    "title": "Twilight Codex III Cards",
+    "description": "Official print-and-play card sheets for Codex III.",
+    "version": "Codex Vigil",
+    "url": "https://images-cdn.fantasyflightgames.com/filer_public/d6/cf/d6cfc687-621a-4c83-9c83-bdf10e14bdf2/ti_codex_3_cards.pdf",
+    "icon": "/resources/images/shared/icons/pdfdownload.webp"
+  },
+  {
+    "id": "ffg-codex-4-rules",
+    "type": "Codex",
+    "title": "Twilight Codex IV: Liberation",
+    "description": "Official fourth Twilight Codex released before Thunder's Edge.",
+    "version": "Codex Liberation",
+    "url": "https://images-cdn.fantasyflightgames.com/filer_public/f6/be/f6be8343-a4fc-47e4-a722-efe3e01fc5d9/ti_codex_4_rules.pdf",
+    "icon": "/resources/images/shared/icons/pdfdownload.webp"
+  },
+  {
+    "id": "ffg-codex-4-cards",
+    "type": "Print and Play",
+    "title": "Twilight Codex IV Cards",
+    "description": "Official print-and-play card sheets for Codex IV.",
+    "version": "Codex Liberation",
+    "url": "https://images-cdn.fantasyflightgames.com/filer_public/cb/66/cb665e94-442d-4bd0-b5bc-6553f64321fc/ti_codex_4_cards.pdf",
+    "icon": "/resources/images/shared/icons/pdfdownload.webp"
+  },
+  {
+    "id": "ffg-codex-4-5-tech",
+    "type": "Errata",
+    "title": "Codex 4.5 Technology Card Updates",
+    "description": "Official technology card corrections published after Codex IV.",
+    "version": "Codex 4.5",
+    "url": "https://images-cdn.fantasyflightgames.com/filer_public/e9/8f/e98f4722-2f45-4328-9119-56508bf1c94b/codex_45_technology_card_updates.pdf",
+    "icon": "/resources/images/shared/icons/pdfdownload.webp"
+  }
+]

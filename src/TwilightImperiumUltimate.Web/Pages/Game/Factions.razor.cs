@@ -2,19 +2,15 @@ namespace TwilightImperiumUltimate.Web.Pages.Game;
 
 public partial class Factions
 {
-    private FactionInfoGrid? factionInfoRef;
+    [SupplyParameterFromQuery(Name = "source")]
+    public string? Source { get; set; }
 
-    [Parameter]
+    [SupplyParameterFromQuery(Name = "version")]
+    public string? Version { get; set; }
+
     [SupplyParameterFromQuery(Name = "faction")]
-    public string Faction { get; set; } = string.Empty;
+    public string? Faction { get; set; }
 
-    [Parameter]
     [SupplyParameterFromQuery(Name = "info")]
-    public string Info { get; set; } = string.Empty;
-
-    private void UpdateSelectedFaction(FactionModel selectedFaction)
-    {
-        factionInfoRef?.UpdateSelectedFaction(selectedFaction);
-        factionInfoRef?.SetFactionInfo(Info);
-    }
+    public string? Info { get; set; }
 }

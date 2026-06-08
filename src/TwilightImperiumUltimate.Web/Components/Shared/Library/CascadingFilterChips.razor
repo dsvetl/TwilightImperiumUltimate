@@ -1,0 +1,16 @@
+<div class="cascading-filter-chips">
+    <FilterChips Items="@PrimaryItems"
+                 Value="@PrimaryValue"
+                 ValueChanged="@PrimaryValueChanged"
+                 AriaLabel="@AriaLabel" />
+
+    @if (ShowSecondary)
+    {
+        <div class="cascade-options">
+            <FilterChips Items="@SecondaryItems"
+                         Value="@SecondaryValue"
+                         ValueChanged="@SecondaryValueChanged"
+                         AriaLabel="@SecondaryAriaLabel" />
+        </div>
+    }
+</div>

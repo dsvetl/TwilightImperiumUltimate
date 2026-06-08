@@ -1,0 +1,49 @@
+.technology-group {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+}
+.technology-group > h3 {
+  font-size: 1.2rem;
+}
+.technology-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.faction-technologies {
+  gap: 28px;
+}
+.faction-technology-group {
+  display: grid;
+  gap: 12px;
+  padding-top: 18px;
+  border-top: 1px solid var(--ti-border);
+}
+.faction-technology-group > header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.faction-technology-group > header img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+.faction-technology-group h4 {
+  font-size: 1rem;
+}
+.catalog-retry {
+  min-height: 42px;
+  margin-top: 16px;
+  padding: 0 18px;
+  color: var(--ti-text);
+  border: 1px solid var(--ti-blue);
+  background: transparent;
+  cursor: pointer;
+}
+@media (max-width: 820px) {
+  .technology-grid {
+    grid-template-columns: 1fr;
+  }
+}

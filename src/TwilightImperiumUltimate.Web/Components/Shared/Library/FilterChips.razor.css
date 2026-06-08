@@ -1,0 +1,95 @@
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+  width: 100%;
+  min-height: 40px;
+  margin: -24px auto 22px;
+  padding: 0;
+  border-top: 1px solid rgba(142, 207, 255, 0.1);
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(5, 12, 20, 0.38) 10%,
+    rgba(5, 12, 20, 0.38) 90%,
+    transparent
+  );
+}
+
+.filter-chips button {
+  position: relative;
+  flex: 0 0 auto;
+  min-width: 92px;
+  min-height: 40px;
+  padding: 9px 16px;
+  color: var(--ti-text-secondary);
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.filter-chips button::after {
+  position: absolute;
+  right: 25%;
+  bottom: 5px;
+  left: 25%;
+  height: 1px;
+  content: "";
+  background: #8ecfff;
+  opacity: 0;
+  transform: scaleX(0);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.filter-chips button:hover,
+.filter-chips button.active {
+  color: #8ecfff;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(18, 57, 87, 0.34),
+    transparent
+  );
+}
+
+.filter-chips button:hover::after,
+.filter-chips button.active::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.filter-chips button:focus-visible {
+  outline: 2px solid #8ecfff;
+  outline-offset: -4px;
+}
+.filter-chips button:disabled {
+  color: var(--ti-text-secondary);
+  background: transparent;
+  cursor: default;
+  opacity: 0.22;
+}
+.filter-chips button:disabled::after {
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .filter-chips {
+    margin-top: -18px;
+    background: rgba(5, 8, 14, 0.36);
+  }
+
+  .filter-chips button {
+    min-width: 28px;
+    padding-inline: 8px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+}
